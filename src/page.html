@@ -1,59 +1,47 @@
-<title>nullshift</title>
-<meta name="description" content="nullshift automates the manual work in your business: software, data pipelines, AI, and Meta & Google Ads automation for marketing agencies.">
+<title>nullshift · We automate manual work</title>
+<meta name="description" content="nullshift builds software that does your team's repetitive work: reports, data entry, reconciliation, and Meta & Google Ads reporting for agencies. It starts with a free one-week audit.">
+<meta name="theme-color" content="#0d0d0d">
+<meta name="color-scheme" content="dark">
+<link rel="icon" type="image/svg+xml" href="brand/nullshift-icon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="brand/favicon-32.png">
+<link rel="apple-touch-icon" href="brand/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="nullshift">
+<meta property="og:title" content="nullshift · We automate manual work">
+<meta property="og:description" content="Software that does your team's repetitive work for them. If it's manual, it's in scope. It starts with a free one-week audit.">
+<meta property="og:url" content="https://illusionist-creator.github.io/nullshift/">
+<meta property="og:image" content="https://illusionist-creator.github.io/nullshift/brand/og-1200x630.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Martian+Mono:wght@400;500&display=swap">
 <style>
+  /* Mono + lime on black: the brand is dark-only. One accent, square corners, the logo's lime square as the motif. */
   :root {
-    --bg: #eef1f5;
-    --surface: #ffffff;
-    --surface-2: #e3e8ef;
-    --ink: #0f1a2c;
-    --ink-2: #46536a;
-    --line: #cfd6e1;
-    --accent: #2a44d8;
-    --accent-ink: #ffffff;
-    --mark: #ffd53d;
-    --mark-ink: #0f1a2c;
-    --ok: #177a4b;
+    color-scheme: dark;
+    --bg: #0d0d0d;
+    --surface: #151515;
+    --surface-2: #1f1f1f;
+    --ink: #f5f5f5;
+    --ink-2: #a8a8a8;
+    --line: #2c2c2c;
+    --line-strong: #666666;
+    --accent: #c6ff3d;
+    --accent-ink: #0d0d0d;
+    --accent-ink-2: #2c3a06;
+    --paper: #f2f2f2;
+    --paper-ink: #0d0d0d;
+    --paper-ink-2: #474747;
     --display: "Archivo", "Arial Narrow", system-ui, sans-serif;
     --body: "Archivo", system-ui, -apple-system, "Segoe UI", sans-serif;
     --mono: "Martian Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
     --wrap: 1120px;
   }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      color-scheme: dark;
-      --bg: #0b1120;
-      --surface: #131b2e;
-      --surface-2: #1a2440;
-      --ink: #e6ebf3;
-      --ink-2: #9aa6bd;
-      --line: #273352;
-      --accent: #8193ff;
-      --accent-ink: #0b1120;
-      --mark: #ffd53d;
-      --mark-ink: #0b1120;
-      --ok: #4fd08f;
-    }
-  }
-  :root[data-theme="dark"] {
-    color-scheme: dark;
-    --bg: #0b1120;
-    --surface: #131b2e;
-    --surface-2: #1a2440;
-    --ink: #e6ebf3;
-    --ink-2: #9aa6bd;
-    --line: #273352;
-    --accent: #8193ff;
-    --accent-ink: #0b1120;
-    --mark: #ffd53d;
-    --mark-ink: #0b1120;
-    --ok: #4fd08f;
-  }
 
   * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; scroll-padding-top: 84px; }
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
   body {
     margin: 0;
@@ -65,8 +53,10 @@
     font-variation-settings: "wdth" 100;
     -webkit-font-smoothing: antialiased;
   }
+  ::selection { background: var(--accent); color: var(--accent-ink); }
   a { color: inherit; }
-  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  .anything :focus-visible, .process :focus-visible { outline-color: var(--paper-ink); }
 
   .wrap { max-width: var(--wrap); margin-inline: auto; padding-inline: 24px; }
   @media (max-width: 480px) { .wrap { padding-inline: 16px; } }
@@ -75,30 +65,31 @@
     font-family: var(--display);
     font-variation-settings: "wdth" 125;
     line-height: 1.05;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.03em;
     text-wrap: balance;
     margin: 0;
   }
-  h1 { font-size: clamp(2.4rem, 6vw, 4.6rem); font-weight: 800; }
-  h2 { font-size: clamp(1.8rem, 3.6vw, 2.8rem); font-weight: 750; }
-  h3 { font-size: 1.2rem; font-weight: 700; letter-spacing: -0.01em; line-height: 1.2; }
+  h1 { font-size: clamp(2.3rem, 6vw, 4.6rem); font-weight: 800; }
+  h2 { font-size: clamp(1.8rem, 3.6vw, 2.8rem); font-weight: 800; }
+  h3 { font-size: 1.2rem; font-weight: 700; letter-spacing: -0.015em; line-height: 1.2; }
   p { margin: 0; }
   .eyebrow {
+    display: inline-flex; align-items: center; gap: 10px;
     font-family: var(--mono);
     font-size: 0.72rem;
     text-transform: uppercase;
     letter-spacing: 0.12em;
     color: var(--ink-2);
   }
+  .eyebrow::before { content: ""; width: 8px; height: 8px; background: var(--accent); flex: none; }
+  .tag { font-family: var(--mono); font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); }
   .lede { font-size: 1.15rem; color: var(--ink-2); max-width: 60ch; }
-  .zero {
-    background: var(--mark);
-    color: var(--mark-ink);
-    padding: 0 0.12em;
-    border-radius: 0.08em;
-    box-decoration-break: clone;
-    -webkit-box-decoration-break: clone;
-  }
+  /* The logo's jumped square, used as a full stop. */
+  .sq { display: inline-block; width: 0.2em; height: 0.2em; background: var(--accent); margin-left: 0.07em; }
+  /* Lists marked with the square. */
+  .sq-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+  .sq-list li { display: grid; grid-template-columns: 18px 1fr; gap: 10px; }
+  .sq-list li::before { content: ""; width: 7px; height: 7px; background: var(--accent); margin-top: 0.62em; }
 
   /* Header */
   .top {
@@ -109,64 +100,76 @@
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--line);
   }
-  .top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 64px; }
-  .brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-family: var(--display); font-variation-settings: "wdth" 125; font-weight: 800; font-size: 1.2rem; letter-spacing: -0.02em; }
-  .brand svg { width: 28px; height: 28px; flex: none; }
-  .nav { display: flex; align-items: center; gap: 28px; font-size: 0.95rem; }
-  .nav a { text-decoration: none; color: var(--ink-2); }
+  .top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 68px; }
+  .brand { display: inline-flex; align-items: center; text-decoration: none; color: var(--ink); min-height: 44px; }
+  .wordmark { display: block; height: 26px; width: 134.5px; transform: translateY(-2px); }
+  .nav { display: flex; align-items: center; gap: 26px; font-size: 0.95rem; }
+  .nav a { text-decoration: none; color: var(--ink-2); white-space: nowrap; }
   .nav a:hover { color: var(--ink); }
-  @media (max-width: 760px) { .nav a:not(.btn) { display: none; } }
+  @media (max-width: 960px) { .nav a:not(.btn) { display: none; } }
 
   .btn {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 12px 20px;
-    border-radius: 999px;
-    font-weight: 600; font-size: 0.95rem;
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    min-height: 46px;
+    padding: 12px 22px;
+    border-radius: 0;
+    font-weight: 700; font-size: 0.95rem;
     text-decoration: none;
     border: 1px solid transparent;
     cursor: pointer;
     font-family: inherit;
-    transition: transform .15s ease, background-color .15s ease;
+    transition: background-color .15s ease, border-color .15s ease, color .15s ease;
   }
   .btn-primary { background: var(--accent); color: var(--accent-ink); }
-  .btn-primary:hover { transform: translateY(-1px); }
-  .btn-ghost { border-color: var(--line); color: var(--ink); background: transparent; }
-  .btn-ghost:hover { background: var(--surface-2); }
-  .nav .btn { color: var(--accent-ink); padding: 9px 16px; }
+  .btn-primary:hover { background: #ffffff; }
+  .btn-ghost { border-color: var(--line-strong); color: var(--ink); background: transparent; }
+  .btn-ghost:hover { border-color: var(--ink); }
+  .btn-ink { background: var(--paper-ink); color: #ffffff; }
+  .btn-ink:hover { background: #333333; }
+  .nav .btn { color: var(--accent-ink); min-height: 40px; padding: 8px 16px; }
+  .nav .btn:hover { color: var(--accent-ink); }
+  .text-link { display: inline-flex; align-items: center; min-height: 44px; font-weight: 700; color: var(--accent); text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1.5px; }
+  .text-link:hover { color: #ffffff; }
 
   section { padding-block: 96px; }
   @media (max-width: 640px) { section { padding-block: 64px; } }
-  .sec-head { display: grid; gap: 16px; margin-bottom: 48px; max-width: 760px; }
+  .sec-head { display: grid; gap: 16px; margin-bottom: 48px; max-width: 760px; justify-items: start; }
 
   /* Hero */
-  .hero { padding-block: 72px 88px; }
+  .hero { padding-block: 80px 96px; }
   .hero .wrap { display: grid; grid-template-columns: 1.15fr 1fr; gap: 56px; align-items: center; }
   @media (max-width: 920px) { .hero .wrap { grid-template-columns: 1fr; } }
-  .hero-copy { display: grid; gap: 24px; }
+  @media (max-width: 640px) { .hero { padding-block: 56px 64px; } }
+  .hero-copy { display: grid; gap: 24px; justify-items: start; }
   .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
+  .hero-alt { font-size: 0.95rem; color: var(--ink-2); }
+  .hero-alt a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 4px; text-decoration-thickness: 1.5px; }
+  .hero-alt a:hover { color: var(--accent); }
 
   .log {
     background: var(--surface);
     border: 1px solid var(--line);
-    border-radius: 14px;
     font-family: var(--mono);
     font-size: 0.78rem;
     overflow: hidden;
-    box-shadow: 0 30px 60px -30px color-mix(in srgb, var(--ink) 30%, transparent);
   }
-  .log-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 14px 18px; border-bottom: 1px solid var(--line); color: var(--ink-2); text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.68rem; }
-  .log-head .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--ok); margin-right: 8px; vertical-align: middle; }
+  .log-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 6px 12px; padding: 14px 18px; border-bottom: 1px solid var(--line); color: var(--ink-2); text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.7rem; }
+  .log-head .dot { display: inline-block; width: 8px; height: 8px; background: var(--accent); margin-right: 10px; }
   .log ol { list-style: none; margin: 0; padding: 0; }
   .log li { display: grid; grid-template-columns: 1fr auto; gap: 4px 16px; padding: 14px 18px; border-bottom: 1px dashed var(--line); }
   .log li:last-child { border-bottom: 0; }
   .log .task { color: var(--ink); font-weight: 500; }
-  .log .cost { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
-  .log .cost .was { color: var(--ink-2); transition: opacity .3s ease; }
-  .log .cost .now { color: var(--ok); font-weight: 500; display: none; }
+  .log .cost { text-align: right; font-variant-numeric: tabular-nums; }
+  .log .cost .was { color: var(--ink-2); transition: opacity .3s ease; white-space: nowrap; }
+  .log .cost .now { color: var(--accent); font-weight: 500; display: none; white-space: nowrap; }
   .log .how { grid-column: 1 / -1; color: var(--ink-2); }
   .log li.done .was { text-decoration: line-through; opacity: 0.6; }
+  @media (max-width: 480px) {
+    .log li { grid-template-columns: 1fr; }
+    .log .cost { text-align: left; }
+  }
   .log li.done .now { display: inline; margin-left: 10px; }
-  .log-foot { padding: 12px 18px; background: var(--surface-2); color: var(--ink-2); font-size: 0.7rem; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .log-foot { padding: 12px 18px; background: var(--surface-2); color: var(--ink-2); font-size: 0.72rem; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
   .log-foot strong { color: var(--ink); font-weight: 500; font-variant-numeric: tabular-nums; }
 
   /* Problems */
@@ -175,75 +178,97 @@
   @media (max-width: 900px) { .prob-grid { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 600px) { .prob-grid { grid-template-columns: 1fr; } }
   .prob { padding: 28px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); display: grid; gap: 12px; align-content: start; }
-  .prob .symptom { font-family: var(--mono); font-size: 0.72rem; color: var(--ink-2); letter-spacing: 0.04em; }
+  @media (max-width: 480px) { .prob { padding: 22px 18px; } }
+  .prob .kind { font-family: var(--mono); font-size: 0.74rem; color: var(--ink-2); text-transform: uppercase; letter-spacing: 0.08em; }
+  .prob h3 { font-size: 1.22rem; line-height: 1.2; }
   .prob p { color: var(--ink-2); font-size: 0.98rem; }
   .prob .fix { color: var(--ink); font-size: 0.95rem; padding-top: 12px; border-top: 1px dashed var(--line); }
-  .prob .fix b { font-family: var(--mono); font-size: 0.7rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 4px; }
+  .prob .fix b { font-family: var(--mono); font-size: 0.74rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 4px; }
 
-  .anything { margin-top: 64px; display: grid; grid-template-columns: 1fr 1.2fr; gap: 48px; align-items: center; padding: 40px; background: var(--bg); border: 1px solid var(--line); border-radius: 14px; }
+  /* The one lime block on the page. */
+  .anything { margin-top: 64px; display: grid; grid-template-columns: 1fr 1.1fr; gap: 48px; align-items: center; padding: 44px; background: var(--accent); color: var(--accent-ink); }
   @media (max-width: 900px) { .anything { grid-template-columns: 1fr; padding: 28px; gap: 28px; } }
-  @media (max-width: 480px) { .anything { padding: 20px; } }
-  .anything-copy { display: grid; gap: 16px; }
-  .anything h2 { font-size: clamp(1.6rem, 3vw, 2.3rem); }
+  @media (max-width: 480px) { .anything { padding: 22px 18px; } }
+  .anything-copy { display: grid; gap: 16px; justify-items: start; }
+  .anything h2 { font-size: clamp(1.7rem, 3.2vw, 2.5rem); }
+  .anything .eyebrow, .anything .lede { color: var(--accent-ink-2); }
+  .anything .eyebrow::before { background: var(--accent-ink); }
   .chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
-  .chips li { font-size: 0.88rem; padding: 7px 13px; border-radius: 999px; background: var(--surface); border: 1px solid var(--line); color: var(--ink-2); text-decoration: line-through; text-decoration-color: color-mix(in srgb, var(--accent) 70%, transparent); text-decoration-thickness: 1.5px; }
+  .chips li { font-size: 0.9rem; font-weight: 600; padding: 7px 12px; border: 1px solid color-mix(in srgb, var(--accent-ink) 55%, transparent); color: var(--accent-ink); }
+
+  /* Work */
+  .work-grid { display: grid; grid-template-columns: 1.25fr 1fr; gap: 20px; align-items: start; }
+  @media (max-width: 900px) { .work-grid { grid-template-columns: 1fr; } }
+  .case { background: var(--surface); border: 1px solid var(--line); padding: 32px; display: grid; gap: 14px; align-content: start; justify-items: start; }
+  @media (max-width: 480px) { .case { padding: 22px 18px; } }
+  .case h3 { font-size: clamp(1.4rem, 2.4vw, 1.8rem); }
+  .case p { color: var(--ink-2); font-size: 0.98rem; }
+  .case-shot { display: block; width: 100%; border: 1px solid var(--line); margin-bottom: 6px; }
+  .case-shot img { display: block; width: 100%; height: auto; }
+  .case-shot:hover { border-color: var(--accent); }
+  .case dl { width: 100%; margin: 6px 0 0; display: grid; grid-template-columns: 8.5rem 1fr; gap: 10px 16px; font-size: 0.92rem; border-top: 1px dashed var(--line); padding-top: 14px; }
+  .case dt { font-family: var(--mono); font-size: 0.74rem; color: var(--ink-2); padding-top: 3px; text-transform: uppercase; letter-spacing: 0.06em; }
+  .case dd { margin: 0; }
+  .case dd a { color: var(--accent); text-underline-offset: 3px; }
+  @media (max-width: 480px) { .case dl { grid-template-columns: 1fr; gap: 2px; } .case dd { margin-bottom: 10px; } }
+
+  /* Services */
+  .services { background: var(--surface); border-block: 1px solid var(--line); }
+  .svc-list { display: grid; gap: 0; border-top: 2px solid var(--ink); }
+  .svc { display: grid; grid-template-columns: 6.5rem 1fr 1.1fr; gap: 32px; padding-block: 36px; border-bottom: 1px solid var(--line); align-items: start; }
+  .svc:last-child { border-bottom: 0; padding-bottom: 0; }
+  @media (max-width: 860px) { .svc { grid-template-columns: 1fr; gap: 16px; } }
+  .svc .glyph { font-family: var(--mono); font-size: 0.78rem; color: var(--accent); padding-top: 6px; white-space: nowrap; }
+  .svc h3 { font-size: clamp(1.4rem, 2.4vw, 1.8rem); margin-bottom: 12px; }
+  .svc .intro { color: var(--ink-2); }
+  .svc .sq-list { font-size: 0.98rem; gap: 10px; }
+
+  /* Agencies */
+  .ag-box { display: grid; grid-template-columns: 1.25fr 1fr; border: 1px solid var(--accent); }
+  @media (max-width: 860px) { .ag-box { grid-template-columns: 1fr; } }
+  .ag-col { padding: 32px; display: grid; gap: 18px; align-content: start; }
+  .ag-col + .ag-col { border-left: 1px solid var(--line); }
+  @media (max-width: 860px) { .ag-col + .ag-col { border-left: 0; border-top: 1px solid var(--line); } }
+  @media (max-width: 480px) { .ag-col { padding: 22px 18px; } }
+  .ag-col p { color: var(--ink-2); font-size: 0.95rem; }
+  .ag-col .tag.muted { color: var(--ink-2); }
+  .ag-col .works-with { font-family: var(--mono); font-size: 0.74rem; line-height: 1.8; }
+  .ag-foot { margin-top: 28px; display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center; }
+  @media (max-width: 860px) { .ag-foot { grid-template-columns: 1fr; justify-items: start; } }
+  .ag-foot p { color: var(--ink-2); max-width: 62ch; }
+  .ag-foot p a { color: var(--ink); text-decoration-color: var(--accent); text-underline-offset: 4px; }
 
   /* Industries */
   .industries { background: var(--surface); border-block: 1px solid var(--line); }
-  .ind-feature { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; padding: 36px; border-radius: 14px; background: var(--accent); color: var(--accent-ink); margin-bottom: 24px; }
-  @media (max-width: 860px) { .ind-feature { grid-template-columns: 1fr; gap: 20px; padding: 28px; } }
-  @media (max-width: 480px) { .ind-feature { padding: 20px; } }
-  .ind-feature > div { display: grid; gap: 12px; align-content: start; }
-  .ind-feature .tag { font-family: var(--mono); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.8; }
-  .ind-feature h3 { font-size: clamp(1.4rem, 2.6vw, 1.9rem); }
-  .ind-feature p { opacity: 0.9; }
-  .ind-feature ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; align-content: center; }
-  .ind-feature li { display: grid; grid-template-columns: 18px 1fr; gap: 10px; }
-  .ind-feature li::before { content: "∅"; font-family: var(--mono); font-size: 0.85rem; padding-top: 2px; color: var(--mark); }
-  :root[data-theme="dark"] .ind-feature li::before { color: var(--accent-ink); }
-  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .ind-feature li::before { color: var(--accent-ink); } }
-  .ind-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-  @media (max-width: 960px) { .ind-grid { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 520px) { .ind-grid { grid-template-columns: 1fr; } }
-  .ind { padding: 22px; border: 1px solid var(--line); border-radius: 12px; background: var(--bg); display: grid; gap: 8px; align-content: start; }
-  .ind h3 { font-size: 1.02rem; }
-  .ind p { font-size: 0.92rem; color: var(--ink-2); }
-  .ind-more { margin-top: 28px; font-family: var(--mono); font-size: 0.8rem; color: var(--ink-2); }
+  .sectors { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 48px; border-top: 1px solid var(--line); }
+  @media (max-width: 860px) { .sectors { grid-template-columns: 1fr; } }
+  .sector { display: grid; grid-template-columns: 12.5rem 1fr; gap: 6px 20px; padding-block: 16px; border-bottom: 1px solid var(--line); align-items: baseline; }
+  @media (max-width: 520px) { .sector { grid-template-columns: 1fr; } }
+  .sector h3 { font-size: 1rem; }
+  .sector p { font-size: 0.92rem; color: var(--ink-2); }
+  .ind-more { margin-top: 28px; color: var(--ink-2); }
 
-  /* Services */
-  .svc-list { display: grid; gap: 0; border-top: 2px solid var(--ink); }
-  .svc { display: grid; grid-template-columns: 5.5rem 1fr 1.1fr; gap: 32px; padding-block: 36px; border-bottom: 1px solid var(--line); align-items: start; }
-  @media (max-width: 860px) { .svc { grid-template-columns: 1fr; gap: 16px; } }
-  .svc .glyph { font-family: var(--mono); font-size: 0.8rem; color: var(--accent); padding-top: 6px; }
-  .svc h3 { font-size: clamp(1.4rem, 2.4vw, 1.8rem); margin-bottom: 12px; }
-  .svc .intro { color: var(--ink-2); }
-  .svc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
-  .svc li { display: grid; grid-template-columns: 18px 1fr; gap: 10px; font-size: 0.98rem; }
-  .svc li::before { content: "→"; color: var(--accent); font-family: var(--mono); font-size: 0.85rem; padding-top: 2px; }
-  .stack { margin-top: 16px; font-family: var(--mono); font-size: 0.7rem; color: var(--ink-2); line-height: 1.8; }
-
-  /* Process */
-  .process { background: var(--ink); color: var(--bg); }
-  .process .eyebrow, .process .lede { color: color-mix(in srgb, var(--bg) 70%, var(--ink)); }
+  /* Process: the one white section. */
+  .process { background: var(--paper); color: var(--paper-ink); }
+  .process .eyebrow, .process .lede { color: var(--paper-ink-2); }
+  .process .eyebrow::before { background: var(--paper-ink); }
   .steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; counter-reset: step; }
   @media (max-width: 900px) { .steps { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 560px) { .steps { grid-template-columns: 1fr; } }
-  .step { padding: 28px 24px 28px 0; border-top: 1px solid color-mix(in srgb, var(--bg) 25%, var(--ink)); display: grid; gap: 10px; align-content: start; counter-increment: step; }
+  .step { padding: 28px 24px 28px 0; border-top: 2px solid var(--paper-ink); display: grid; gap: 10px; align-content: start; counter-increment: step; }
   @media (max-width: 560px) { .step { padding-right: 0; } }
-  .step::before { content: "0" counter(step); font-family: var(--mono); font-size: 0.75rem; color: var(--mark); }
-  .step .dur { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.06em; color: color-mix(in srgb, var(--bg) 60%, var(--ink)); }
-  .step p { color: color-mix(in srgb, var(--bg) 78%, var(--ink)); font-size: 0.96rem; }
-
-  /* Engagement */
-  .eng-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-  @media (max-width: 900px) { .eng-grid { grid-template-columns: 1fr; } }
-  .eng { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 28px; display: grid; gap: 14px; align-content: start; }
-  .eng.featured { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
-  .eng .tag { font-family: var(--mono); font-size: 0.7rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.1em; }
-  .eng p { color: var(--ink-2); font-size: 0.97rem; }
-  .eng dl { margin: 6px 0 0; display: grid; grid-template-columns: auto 1fr; gap: 8px 16px; font-size: 0.9rem; border-top: 1px dashed var(--line); padding-top: 14px; }
-  .eng dt { font-family: var(--mono); font-size: 0.7rem; color: var(--ink-2); padding-top: 3px; text-transform: uppercase; letter-spacing: 0.06em; }
-  .eng dd { margin: 0; }
+  .step::before { content: "0" counter(step); font-family: var(--mono); font-size: 0.75rem; font-weight: 500; color: var(--paper-ink); }
+  .step .dur { font-family: var(--mono); font-size: 0.74rem; letter-spacing: 0.04em; color: var(--paper-ink-2); }
+  .step .dur b { font-weight: 500; background: var(--paper-ink); color: var(--paper); padding: 2px 7px; margin-left: 4px; }
+  .step p { color: var(--paper-ink-2); font-size: 0.96rem; }
+  .terms { margin-top: 40px; padding-top: 40px; border-top: 2px solid var(--paper-ink); display: grid; grid-template-columns: 1fr 1.5fr; gap: 48px; align-items: start; }
+  @media (max-width: 860px) { .terms { grid-template-columns: 1fr; gap: 28px; } }
+  .terms-copy { display: grid; gap: 16px; justify-items: start; }
+  .terms h3 { font-size: clamp(1.5rem, 2.8vw, 2.1rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.08; }
+  .terms-copy p { color: var(--paper-ink-2); }
+  .terms .sq-list { grid-template-columns: repeat(2, 1fr); gap: 14px 32px; font-weight: 600; }
+  @media (max-width: 560px) { .terms .sq-list { grid-template-columns: 1fr; } }
+  .terms .sq-list li::before { background: var(--paper-ink); }
 
   /* FAQ */
   .faq { display: grid; gap: 0; border-top: 1px solid var(--line); max-width: 820px; }
@@ -257,46 +282,62 @@
   /* Contact */
   .contact { background: var(--surface); border-top: 1px solid var(--line); }
   .contact .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
-  @media (max-width: 860px) { .contact .wrap { grid-template-columns: 1fr; } }
-  .contact-copy { display: grid; gap: 20px; }
-  .mailbox { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; font-family: var(--mono); font-size: 0.9rem; }
-  .mailbox code { background: var(--surface-2); padding: 8px 12px; border-radius: 8px; user-select: all; font-family: inherit; }
-  .copy-btn { font-family: var(--mono); font-size: 0.75rem; padding: 8px 12px; border-radius: 8px; border: 1px solid var(--line); background: transparent; color: var(--ink); cursor: pointer; }
-  .copy-btn:hover { background: var(--surface-2); }
-  form { display: grid; gap: 16px; background: var(--bg); border: 1px solid var(--line); border-radius: 14px; padding: 28px; }
+  @media (max-width: 860px) { .contact .wrap { grid-template-columns: 1fr; gap: 36px; } }
+  .contact-copy { display: grid; gap: 20px; justify-items: start; }
+  .next { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; counter-reset: next; color: var(--ink-2); font-size: 0.97rem; }
+  .next li { display: grid; grid-template-columns: 28px 1fr; gap: 8px; counter-increment: next; }
+  .next li::before { content: "0" counter(next); font-family: var(--mono); font-size: 0.74rem; color: var(--accent); padding-top: 4px; }
+  .reach { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; }
+  .reach-line { font-family: var(--mono); font-size: 0.9rem; text-decoration: none; display: inline-flex; align-items: center; min-height: 44px; }
+  .reach-line:hover { color: var(--accent); }
+  .mailbox { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; font-family: var(--mono); font-size: 0.85rem; max-width: 100%; }
+  .mailbox a { background: var(--surface-2); padding: 12px 14px; overflow-wrap: anywhere; text-decoration: none; }
+  .mailbox a:hover { color: var(--accent); }
+  .copy-btn { font-family: var(--mono); font-size: 0.75rem; min-height: 44px; padding: 8px 14px; border: 1px solid var(--line-strong); border-radius: 0; background: transparent; color: var(--ink); cursor: pointer; }
+  .copy-btn:hover { border-color: var(--ink); }
+  form { display: grid; gap: 16px; background: var(--bg); border: 1px solid var(--line); padding: 28px; }
+  @media (max-width: 480px) { form { padding: 22px 18px; } }
   label { display: grid; gap: 6px; font-size: 0.85rem; font-weight: 600; }
   input, textarea, select {
     font: inherit; font-size: 1rem; font-weight: 400;
     color: var(--ink); background: var(--surface);
-    border: 1px solid var(--line); border-radius: 10px;
+    border: 1px solid var(--line-strong); border-radius: 0;
     padding: 12px 14px; width: 100%;
   }
   input:focus, textarea:focus, select:focus { outline: 2px solid var(--accent); outline-offset: 0; border-color: transparent; }
   textarea { min-height: 120px; resize: vertical; }
+  ::placeholder { color: #8a8a8a; }
   .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
   @media (max-width: 520px) { .row2 { grid-template-columns: 1fr; } }
-  .form-note { font-size: 0.88rem; color: var(--ink-2); min-height: 1.4em; }
-  .form-note.ok { color: var(--ok); }
+  .form-hint { font-size: 0.88rem; color: var(--ink-2); }
+  .form-actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+  .form-note { font-size: 0.9rem; color: var(--ink); }
+  .form-note:empty { display: none; }
+  .form-note.warn { color: #ffb4a8; }
+  .form-note.sent { color: var(--accent); font-weight: 600; }
+  .btn[disabled] { opacity: 0.6; cursor: progress; }
+  [hidden] { display: none !important; }
 
-  footer { padding-block: 40px; border-top: 1px solid var(--line); font-size: 0.88rem; color: var(--ink-2); }
-  footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; align-items: center; }
-  footer .brand { font-size: 1rem; color: var(--ink); }
-  footer .brand svg { width: 22px; height: 22px; }
+  footer { padding-block: 36px; border-top: 1px solid var(--line); font-size: 0.88rem; color: var(--ink-2); }
+  footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 14px 24px; align-items: center; }
+  footer .wordmark { height: 22px; width: 113.8px; }
+  footer a:not(.brand) { text-underline-offset: 3px; }
+  footer a:not(.brand):hover { color: var(--ink); }
 </style>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="wordmark" viewBox="0 0 450.7 87.1"><path fill="currentColor" d="M0 87.1V34.3H15L16.2 43.1H17.1Q19.9 39.4 23.6 37.25Q27.3 35.1 31.45 34.1Q35.6 33.1 39.7 33.1Q47.4 33.1 52.5 35.55Q57.6 38 60.15 42.95Q62.7 47.9 62.7 55.3V87.1H44.3V57.8Q44.3 55.1 43.55 53.05Q42.8 51 41.35 49.65Q39.9 48.3 37.75 47.6Q35.6 46.9 32.8 46.9Q28.9 46.9 25.65 48.5Q22.4 50.1 20.45 52.95Q18.5 55.8 18.5 59.6V87.1ZM94.8 88.3Q83.4 88.3 77.6 82.75Q71.8 77.2 71.8 66.2V34.3H90.2V63.6Q90.2 66.3 91 68.4Q91.8 70.5 93.25 71.85Q94.7 73.2 96.85 73.85Q99 74.5 101.7 74.5Q105.7 74.5 108.95 72.9Q112.2 71.3 114.1 68.45Q116 65.6 116 61.9V34.3H134.5V87.1H119.6L118.3 78.3H117.4Q114.6 82 110.9 84.15Q107.2 86.3 103.1 87.3Q99 88.3 94.8 88.3ZM144 87.1V14.6H162.5V87.1ZM172 87.1V14.6H190.5V87.1ZM228.8 88.3Q222.9 88.3 217.25 87.35Q211.6 86.4 207.05 84.45Q202.5 82.5 199.8 79.4Q197.1 76.3 197.1 72Q197.1 71.6 197.15 71.2Q197.2 70.8 197.3 70.4H216.3Q216.2 70.7 216.2 70.95Q216.2 71.2 216.2 71.4Q216.2 73.5 218 74.8Q219.8 76.1 222.65 76.7Q225.5 77.3 228.9 77.3Q231.7 77.3 234.85 76.95Q238 76.6 240.15 75.6Q242.3 74.6 242.3 72.5Q242.3 70.2 239.45 69.3Q236.6 68.4 231.85 67.85Q227.1 67.3 221.1 66.5Q216.6 65.9 212.6 64.85Q208.6 63.8 205.5 61.95Q202.4 60.1 200.65 57.25Q198.9 54.4 198.9 50.3Q198.9 45.5 201.25 42.2Q203.6 38.9 207.8 36.9Q212 34.9 217.6 34Q223.2 33.1 229.7 33.1Q235.4 33.1 240.65 34Q245.9 34.9 250.05 36.75Q254.2 38.6 256.6 41.45Q259 44.3 259 48.2Q259 48.6 259 49Q259 49.4 258.9 49.7H240V49Q240 47.3 238.45 46.25Q236.9 45.2 234.55 44.7Q232.2 44.2 229.5 44.2Q228.4 44.2 226.4 44.25Q224.4 44.3 222.3 44.7Q220.2 45.1 218.75 45.9Q217.3 46.7 217.3 48.2Q217.3 50.1 219.75 50.95Q222.2 51.8 226.25 52.2Q230.3 52.6 235 53.2Q239.8 53.7 244.45 54.6Q249.1 55.5 252.75 57.25Q256.4 59 258.55 62.1Q260.7 65.2 260.7 70.1Q260.7 75.3 258.35 78.8Q256 82.3 251.7 84.4Q247.4 86.5 241.55 87.4Q235.7 88.3 228.8 88.3ZM267.5 87.1V14.6H286V41H286.7Q289.5 38.1 292.8 36.35Q296.1 34.6 299.8 33.85Q303.5 33.1 307.2 33.1Q314.9 33.1 320 35.55Q325.1 38 327.65 42.95Q330.2 47.9 330.2 55.3V87.1H311.8V57.8Q311.8 55.1 311.05 53.05Q310.3 51 308.85 49.65Q307.4 48.3 305.25 47.6Q303.1 46.9 300.3 46.9Q296.4 46.9 293.15 48.5Q289.9 50.1 287.95 52.95Q286 55.8 286 59.6V87.1ZM339.5 87.1V34.3H358V87.1ZM373.3 87.1V46.9H362.1V34.3H373.3V31.5Q373.3 25.3 375.75 21.3Q378.2 17.3 382.75 15.4Q387.3 13.5 393.5 13.5Q395.6 13.5 398.15 13.7Q400.7 13.9 403.2 14.3Q405.7 14.7 407.6 15.2V26H401Q395.7 26 393.7 27.25Q391.7 28.5 391.7 31.5V34.3H407.6V46.9H391.7V87.1ZM437.6 88.3Q431 88.3 426.55 86.8Q422.1 85.3 419.8 81.6Q417.5 77.9 417.5 71.3V46.9H407.2V34.3H418.2L421.9 18.6H436V34.3H450.7V46.9H436V67.9Q436 71.7 437.6 73.75Q439.2 75.8 444.2 75.8H450.7V86.5Q449.3 87 446.85 87.4Q444.4 87.8 441.9 88.05Q439.4 88.3 437.6 88.3Z"/><rect fill="var(--accent)" x="343.2" y="0" width="18.5" height="18.5"/></symbol></svg>
 
 <header class="top">
   <div class="wrap">
     <a class="brand" href="#top" aria-label="nullshift home">
-      <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="10.5" fill="none" stroke="var(--ink)" stroke-width="3"/><line x1="7" y1="27" x2="25" y2="5" stroke="var(--accent)" stroke-width="3" stroke-linecap="round"/></svg>
-      nullshift
+      <svg class="wordmark" viewBox="0 0 450.7 87.1" aria-hidden="true"><use href="#wordmark"/></svg>
     </a>
     <nav class="nav" aria-label="Main">
       <a href="#problems">What we solve</a>
+      <a href="#work">Our work</a>
       <a href="#services">Services</a>
-      <a href="#industries">Industries</a>
+      <a href="#agencies">For agencies</a>
       <a href="#process">How we work</a>
-      <a href="#faq">FAQ</a>
-      <a class="btn btn-primary" href="#contact">Talk to us</a>
+      <a class="btn btn-primary" href="#contact">Get a free audit</a>
     </nav>
   </div>
 </header>
@@ -305,25 +346,26 @@
   <section class="hero">
     <div class="wrap">
       <div class="hero-copy">
-        <span class="eyebrow">Software &amp; automation studio</span>
-        <h1>Shift the busywork to <span class="zero">zero</span>.</h1>
-        <p class="lede">nullshift builds the software, data pipelines and AI automations that take repetitive work off your team. The hours spent copying, reconciling and chasing updates go back to the work that needs a person. If it's manual and repetitive, we can automate it.</p>
+        <span class="eyebrow">Software &amp; automation studio · India</span>
+        <h1>Shift the busywork to zero<span class="sq" aria-hidden="true"></span></h1>
+        <p class="lede">nullshift builds software that does your team's repetitive work for them: the monthly report, the invoice entry, the copying from one system to another. For businesses of roughly 5 to 500 people, and for agencies running Meta and Google Ads. It starts with a free one-week audit.</p>
         <div class="hero-ctas">
-          <a class="btn btn-primary" href="#contact">Book a free workflow audit</a>
-          <a class="btn btn-ghost" href="#services">See what we build</a>
+          <a class="btn btn-primary" href="#contact">Get a free workflow audit</a>
+          <a class="btn btn-ghost" href="#work">See work you can check</a>
         </div>
+        <p class="hero-alt">Run a marketing agency? <a href="#agencies">See Meta &amp; Google Ads automation</a></p>
       </div>
 
-      <figure class="log" aria-label="Example workloads nullshift automates" style="margin:0">
-        <div class="log-head"><span><span class="dot"></span>Shift log</span><span>Example workloads</span></div>
+      <figure class="log" aria-label="An illustration of manual tasks before and after automation. These are examples, not client results." style="margin:0">
+        <div class="log-head"><span><span class="dot"></span>Before and after</span><span>Illustration, not client results</span></div>
         <ol id="log">
-          <li><span class="task">Monthly MIS report</span><span class="cost"><span class="was">2 days</span><span class="now">∅ 0 min</span></span><span class="how">Builds itself at 06:00 on the 1st</span></li>
-          <li><span class="task">Invoice data entry</span><span class="cost"><span class="was">40 min/day</span><span class="now">∅ 0 min</span></span><span class="how">Fields extracted the moment a PDF lands</span></li>
-          <li><span class="task">Stock reconciliation</span><span class="cost"><span class="was">3 hrs/week</span><span class="now">∅ 0 min</span></span><span class="how">Systems synced every hour, exceptions flagged</span></li>
-          <li><span class="task">Client ad reports</span><span class="cost"><span class="was">6 hrs/week</span><span class="now">∅ 0 min</span></span><span class="how">Meta + Google Ads data pulled for every client each Monday</span></li>
-          <li><span class="task">Customer follow-ups</span><span class="cost"><span class="was">1 hr/day</span><span class="now">∅ 0 min</span></span><span class="how">Sent automatically when an order changes status</span></li>
+          <li><span class="task">Monthly MIS report</span><span class="cost"><span class="was">2 days</span><span class="now">automated</span></span><span class="how">Builds itself at 06:00 on the 1st</span></li>
+          <li><span class="task">Client ad reports</span><span class="cost"><span class="was">6 hrs/week</span><span class="now">automated</span></span><span class="how">Meta + Google Ads data pulled for every client each Monday</span></li>
+          <li><span class="task">Invoice data entry</span><span class="cost"><span class="was">40 min/day</span><span class="now">exceptions only</span></span><span class="how">Fields read when a PDF lands, odd ones passed to a person</span></li>
+          <li><span class="task">Stock reconciliation</span><span class="cost"><span class="was">3 hrs/week</span><span class="now">exceptions only</span></span><span class="how">Systems synced every hour, mismatches flagged</span></li>
+          <li><span class="task">Customer follow-ups</span><span class="cost"><span class="was">1 hr/day</span><span class="now">automated</span></span><span class="how">Sent when an order changes status</span></li>
         </ol>
-        <div class="log-foot"><span>Manual steps remaining</span><strong id="remaining">5 of 5</strong></div>
+        <div class="log-foot"><span>Routine steps still done by hand</span><strong id="remaining">5 of 5</strong></div>
       </figure>
     </div>
   </section>
@@ -333,44 +375,44 @@
       <div class="sec-head">
         <span class="eyebrow">What we solve</span>
         <h2>If your team says any of these, we should talk.</h2>
-        <p class="lede">Most businesses don't need more software. They need the tools they already have to work together, and the manual glue between them removed.</p>
+        <p class="lede">Most businesses don't need another platform. They need the tools they already have to work together, and the manual glue between them removed.</p>
       </div>
       <div class="prob-grid">
         <article class="prob">
-          <span class="symptom">“The report takes two days every month.”</span>
-          <h3>Reporting is manual</h3>
+          <span class="kind">Reporting is manual</span>
+          <h3>“The report takes two days every month.”</h3>
           <p>Someone exports from four systems, pastes into Excel, fixes formulas and emails a PDF. It's late and it's never quite the same twice.</p>
-          <p class="fix"><b>We build</b>Pipelines that pull the data on a schedule and live dashboards that are always current.</p>
+          <p class="fix"><b>We build</b>Reports that pull the data on a schedule, and live dashboards that are always current.</p>
         </article>
         <article class="prob">
-          <span class="symptom">“We type the same thing into three places.”</span>
-          <h3>Tools don't talk to each other</h3>
+          <span class="kind">Tools don't talk to each other</span>
+          <h3>“We type the same thing into three places.”</h3>
           <p>CRM, accounting, inventory and WhatsApp each hold part of the truth, and people carry data between them by hand.</p>
-          <p class="fix"><b>We build</b>Integrations that keep your systems in sync, with alerts when something doesn't match.</p>
+          <p class="fix"><b>We build</b>Connections that keep your systems in sync, with alerts when something doesn't match.</p>
         </article>
         <article class="prob">
-          <span class="symptom">“Nobody knows which number is right.”</span>
-          <h3>Data is scattered</h3>
+          <span class="kind">Data is scattered</span>
+          <h3>“Nobody knows which number is right.”</h3>
           <p>Every team has its own spreadsheet and its own version of revenue, stock or headcount. Decisions wait on reconciliation.</p>
-          <p class="fix"><b>We build</b>One clean data layer with agreed definitions that every report reads from.</p>
+          <p class="fix"><b>We build</b>One agreed set of numbers that every report reads from, so revenue means the same thing in every meeting.</p>
         </article>
         <article class="prob">
-          <span class="symptom">“The software almost fits.”</span>
-          <h3>Off-the-shelf falls short</h3>
+          <span class="kind">Client reporting is rebuilt by hand</span>
+          <h3>“Monday is report day.”</h3>
+          <p>Someone opens Meta and Google Ads for every client, exports the numbers, pastes them into a deck and sends it. Then does it again next week.</p>
+          <p class="fix"><b>We build</b>Client reports that pull every account on a schedule and send themselves, with alerts when spend goes off plan.</p>
+        </article>
+        <article class="prob">
+          <span class="kind">Off-the-shelf falls short</span>
+          <h3>“The software almost fits.”</h3>
           <p>You pay for a big platform and still run the real process on sheets and calls, because it doesn't match how you work.</p>
-          <p class="fix"><b>We build</b>Focused web apps, internal tools and PWAs shaped around your actual workflow.</p>
+          <p class="fix"><b>We build</b>A focused tool built around how you actually work, in a browser or installed on a phone.</p>
         </article>
         <article class="prob">
-          <span class="symptom">“We should be using AI, but where?”</span>
-          <h3>AI without a plan</h3>
+          <span class="kind">AI without a plan</span>
+          <h3>“We should be using AI, but where?”</h3>
           <p>There's pressure to adopt AI, but demos don't survive contact with real documents, real customers and real edge cases.</p>
-          <p class="fix"><b>We build</b>AI features for specific jobs: reading documents, drafting replies, routing requests. Each one measured before it ships.</p>
-        </article>
-        <article class="prob">
-          <span class="symptom">“Don't touch it, it might break.”</span>
-          <h3>Fragile legacy systems</h3>
-          <p>A critical system runs on old code, one person's knowledge or a macro nobody understands. Every change is a risk.</p>
-          <p class="fix"><b>We build</b>A safe path off it: documented, tested and migrated in stages without stopping the business.</p>
+          <p class="fix"><b>We build</b>AI for specific jobs: reading documents, drafting replies, sorting requests. Each one tested on your own data before it goes live.</p>
         </article>
       </div>
 
@@ -378,35 +420,70 @@
         <div class="anything-copy">
           <span class="eyebrow">And everything else</span>
           <h2>If it's manual, it's in scope.</h2>
-          <p class="lede">The six above are just the most common. Our rule is simple: if someone on your team does it by hand, on repeat, following steps they could write down, we can take it off them. Whatever the tool and whatever the industry.</p>
+          <p class="lede">The six above are only examples. Our test is simple: if someone on your team does it by hand, on repeat, following steps they could write down, it can usually be automated or cut down a lot. If it can't, we say so in the audit, before you've spent anything.</p>
+          <a class="btn btn-ink" href="#contact">Send us one task</a>
         </div>
-        <ul class="chips" aria-label="Examples of manual work we remove">
+        <ul class="chips" aria-label="Examples of manual work we take on">
           <li>Copy-pasting between systems</li>
           <li>Data entry from PDFs &amp; emails</li>
           <li>Updating spreadsheets</li>
           <li>Matching payments to invoices</li>
           <li>Chasing approvals</li>
-          <li>Sending reminders &amp; follow-ups</li>
+          <li>Reminders &amp; follow-ups</li>
           <li>Formatting weekly reports</li>
-          <li>Downloading exports</li>
           <li>Onboarding paperwork</li>
-          <li>Checking for errors</li>
           <li>Moving leads into the CRM</li>
           <li>Answering the same questions</li>
           <li>Scheduling &amp; rostering</li>
           <li>Renaming &amp; filing documents</li>
-          <li>Building ad reports</li>
-          <li>Posting status updates</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <section id="services">
+  <section class="work" id="work">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Proof</span>
+        <h2>Built by us. Open it and check.</h2>
+        <p class="lede">nullshift is a new studio, so there is no wall of client logos here yet. This is our own work, built the way we would build yours.</p>
+      </div>
+      <div class="work-grid">
+        <article class="case">
+          <a class="case-shot" href="https://illusionist-creator.github.io/rbi-payments-data/" target="_blank" rel="noopener" aria-label="Open the India Card Monitor dashboard in a new tab">
+            <img src="assets/india-card-monitor.webp" width="1200" height="717" loading="lazy" alt="The India Card Monitor dashboard: credit cards outstanding, monthly card payments, and each bank's share over time.">
+          </a>
+          <span class="tag">Data pipeline · live</span>
+          <h3>India Card Monitor</h3>
+          <p>A public dashboard tracking India's credit card, debit card and UPI payments, bank by bank. The Reserve Bank of India publishes the figures as one Excel file a month, in layouts that have changed several times since 2011. NPCI publishes the UPI figures separately.</p>
+          <dl>
+            <dt>What it handles</dt><dd>Every monthly file since April 2011, more than 180 of them, covering 86 banks whose names appear in 190 different spellings.</dd>
+            <dt>How it runs</dt><dd>Every Monday and Thursday a scheduled job checks both sources, downloads anything new or revised, re-processes every file and republishes the dashboard.</dd>
+            <dt>Manual steps</dt><dd>None.</dd>
+            <dt>Why it matters</dt><dd>It is the same job as a monthly MIS report or a client ad report: files arrive from different sources in changing formats, and a finished report comes out with nobody touching it.</dd>
+          </dl>
+          <a class="text-link" href="https://illusionist-creator.github.io/rbi-payments-data/" target="_blank" rel="noopener">Open the live dashboard</a>
+        </article>
+        <article class="case">
+          <span class="tag">Custom software · private beta</span>
+          <h3>Darshan</h3>
+          <p>An installable web app that helps people find and plan visits to temples in Ahmedabad, Bengaluru and Mumbai. It works like a phone app, without an app-store download.</p>
+          <dl>
+            <dt>What's inside</dt><dd>1,635 temples on a searchable map, and a daily calendar in four regional traditions that the app calculates itself. Nobody types it in.</dd>
+            <dt>Why it matters</dt><dd>It is a complete customer-facing app: the same kind of build as a booking, ordering or dealer app.</dd>
+            <dt>Status</dt><dd>Private beta, not public yet. <a href="#contact">Ask us for a walkthrough</a>.</dd>
+          </dl>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="services">
     <div class="wrap">
       <div class="sec-head">
         <span class="eyebrow">Services</span>
-        <h2>Five ways we take work off your plate.</h2>
+        <h2>Four ways we take work off your plate.</h2>
+        <p class="lede">We work with the tools you already have, and only suggest new software when the existing tool is the actual problem.</p>
       </div>
       <div class="svc-list">
         <article class="svc">
@@ -415,15 +492,12 @@
             <h3>Workflow automation &amp; integrations</h3>
             <p class="intro">We map how work moves through your business, find the steps a person shouldn't be doing, and wire your tools together so they happen on their own.</p>
           </div>
-          <div>
-            <ul>
-              <li>Workflow audit with hours-saved estimates for each step</li>
-              <li>API integrations between CRM, ERP, accounting and messaging</li>
-              <li>Scheduled jobs, approvals and exception alerts</li>
-              <li>Email, WhatsApp and SMS notifications triggered by events</li>
-            </ul>
-            <p class="stack">Python · Node · n8n · Zapier/Make · REST &amp; webhooks</p>
-          </div>
+          <ul class="sq-list">
+            <li>A workflow audit with an hours-saved estimate for each step</li>
+            <li>Connections between your CRM, ERP, accounting software and WhatsApp or email, so data is entered once</li>
+            <li>Scheduled jobs, approvals and alerts when something needs a person</li>
+            <li>Email, WhatsApp and SMS messages sent automatically when something happens</li>
+          </ul>
         </article>
         <article class="svc">
           <span class="glyph">[ measure ]</span>
@@ -431,15 +505,12 @@
             <h3>Data pipelines &amp; dashboards</h3>
             <p class="intro">We collect data from wherever it lives, clean it once, and put it in front of the people who decide, refreshed automatically.</p>
           </div>
-          <div>
-            <ul>
-              <li>Pipelines from databases, spreadsheets, APIs and public data sources</li>
-              <li>A single warehouse with agreed metric definitions</li>
-              <li>Dashboards in Tableau, Power BI, Looker Studio or custom web</li>
-              <li>Scheduled reports delivered to inbox or chat</li>
-            </ul>
-            <p class="stack">SQL · Python · dbt · BigQuery/Postgres · Tableau · Power BI</p>
-          </div>
+          <ul class="sq-list">
+            <li>Data pulled from databases, spreadsheets, other software and public sources</li>
+            <li>One place for all your data, with each figure defined once</li>
+            <li>Dashboards in Tableau, Power BI, Looker Studio or a custom web page</li>
+            <li>Scheduled reports delivered to inbox or chat</li>
+          </ul>
         </article>
         <article class="svc">
           <span class="glyph">[ build ]</span>
@@ -447,15 +518,12 @@
             <h3>Custom software</h3>
             <p class="intro">When nothing on the market fits, we build a focused tool that does exactly your job and nothing you'll pay for but never use.</p>
           </div>
-          <div>
-            <ul>
-              <li>Internal tools and admin panels for operations teams</li>
-              <li>Customer-facing web apps and installable PWAs</li>
-              <li>Booking, ordering, ticketing and payments flows</li>
-              <li>Modernising legacy systems in safe, staged steps</li>
-            </ul>
-            <p class="stack">TypeScript · React · Next.js · Postgres · Firebase · cloud hosting</p>
-          </div>
+          <ul class="sq-list">
+            <li>Internal tools and admin panels for operations teams</li>
+            <li>Apps for your customers that open in a browser or install on a phone</li>
+            <li>Forms, approvals and booking flows that replace a paper or WhatsApp process</li>
+            <li>Replacing a spreadsheet or macro the business depends on, in safe stages</li>
+          </ul>
         </article>
         <article class="svc">
           <span class="glyph">[ assist ]</span>
@@ -463,34 +531,47 @@
             <h3>Applied AI</h3>
             <p class="intro">We put AI to work on specific, repetitive jobs and test it against your real data before anyone relies on it.</p>
           </div>
-          <div>
-            <ul>
-              <li>Document extraction from invoices, forms, contracts and IDs</li>
-              <li>Assistants that answer from your own policies and records</li>
-              <li>AI agents that triage, draft and route requests with a human check</li>
-              <li>Evaluation sets that show accuracy before and after launch</li>
-            </ul>
-            <p class="stack">LLM APIs · retrieval · OCR · evaluation harnesses · guardrails</p>
-          </div>
+          <ul class="sq-list">
+            <li>Reading invoices, forms and purchase orders so nobody retypes them</li>
+            <li>Assistants that answer from your own policies and records</li>
+            <li>AI that sorts incoming requests, drafts replies and passes them to the right person, with a human approving</li>
+            <li>Accuracy checked on your own documents before launch, and tracked after</li>
+          </ul>
         </article>
-        <article class="svc">
-          <span class="glyph">[ advertise ]</span>
-          <div>
-            <h3>Meta &amp; Google Ads automation</h3>
-            <p class="intro">Built for marketing agencies and in-house teams running paid media. We automate the reporting, monitoring and busywork around your campaigns, so your team spends its time on strategy and creative.</p>
-          </div>
-          <div>
-            <ul>
-              <li>Client reports that pull Meta and Google Ads data for every account on schedule, white-labelled</li>
-              <li>Budget pacing and spend alerts before a campaign over- or under-delivers</li>
-              <li>Meta Lead Ads and Google lead forms delivered to your CRM or WhatsApp within seconds</li>
-              <li>Conversions API, offline conversion uploads and enhanced conversions, so platforms optimise on real sales</li>
-              <li>Bulk campaign and ad creation from a sheet, with naming and UTM rules enforced</li>
-              <li>Cross-client dashboards showing spend, CPL and ROAS in one place</li>
-            </ul>
-            <p class="stack">Meta Marketing API · Google Ads API · Conversions API · GA4 · Looker Studio · BigQuery</p>
-          </div>
-        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="agencies" id="agencies">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">For marketing agencies</span>
+        <h2>Your team shouldn't be pulling numbers out of Ads Manager.</h2>
+        <p class="lede">In most agencies, someone pulls numbers from Meta and Google Ads, pastes them into client decks, and checks that no budget ran away overnight. We automate that layer across every client account. We don't run your campaigns; we remove the busywork around them.</p>
+      </div>
+      <div class="ag-box">
+        <div class="ag-col">
+          <span class="tag">Where we start: reporting and monitoring</span>
+          <ul class="sq-list">
+            <li>Client reports built from Meta and Google Ads data for every account, on schedule, in your branding</li>
+            <li>Alerts in Slack or WhatsApp when a budget over- or under-spends, an ad is disapproved or tracking breaks</li>
+            <li>Leads from Meta and Google lead forms delivered to the client's CRM or sales team within seconds</li>
+            <li>One dashboard across all clients: spend, leads, cost per lead and ROAS</li>
+          </ul>
+          <p>Reports, alerts and dashboards run on read-only access. They can't change a campaign or spend a rupee.</p>
+        </div>
+        <div class="ag-col">
+          <span class="tag muted">Once the basics run</span>
+          <ul class="sq-list">
+            <li>Conversion tracking that sends real sales back to the platforms (Conversions API, offline and enhanced conversions)</li>
+            <li>Bulk campaign and ad creation from a sheet, with your naming and UTM rules enforced</li>
+          </ul>
+          <p class="works-with">Works with: Meta Marketing API · Google Ads API · Conversions API · GA4 · Looker Studio · BigQuery</p>
+        </div>
+      </div>
+      <div class="ag-foot">
+        <p>Start with the free one-week audit: we map your reporting and monitoring routine and tell you which parts are worth automating, and which an off-the-shelf tool already covers. The same kind of pipeline is already running on public data in <a href="#work">our own work</a>.</p>
+        <a class="btn btn-primary" href="#contact">Get a free audit of your reporting</a>
       </div>
     </div>
   </section>
@@ -500,34 +581,19 @@
       <div class="sec-head">
         <span class="eyebrow">Industries</span>
         <h2>Different industries, the same manual work.</h2>
-        <p class="lede">Every sector has its own tools, but the repetitive work looks much the same. Here's where we see it most.</p>
+        <p class="lede">Every sector has its own tools, but the repetitive work looks much the same. Some examples of where it piles up.</p>
       </div>
-
-      <article class="ind-feature">
-        <div>
-          <span class="tag">Built for agencies</span>
-          <h3>Marketing &amp; advertising agencies</h3>
-          <p>Agencies lose whole days to pulling numbers from Meta and Google Ads, pasting them into client decks, and checking that no budget ran away overnight. We automate that layer across every client account.</p>
-        </div>
-        <ul>
-          <li>Weekly client reports built and sent without anyone opening Ads Manager</li>
-          <li>Overspend, disapproved-ad and tracking-break alerts in Slack or WhatsApp</li>
-          <li>Leads routed from ad forms to the client's sales team in seconds</li>
-          <li>One dashboard for every client's spend, leads and ROAS</li>
-        </ul>
-      </article>
-
-      <div class="ind-grid">
-        <article class="ind"><h3>Retail &amp; e-commerce</h3><p>Order syncing across marketplaces, stock updates, returns processing, daily sales reports.</p></article>
-        <article class="ind"><h3>Manufacturing &amp; distribution</h3><p>Purchase orders, dispatch tracking, inventory reconciliation, dealer and distributor reporting.</p></article>
-        <article class="ind"><h3>Finance &amp; accounting firms</h3><p>Bank reconciliation, invoice extraction, GST and compliance data prep, client document collection.</p></article>
-        <article class="ind"><h3>Healthcare &amp; clinics</h3><p>Appointment reminders, patient intake forms, lab report delivery, billing follow-ups.</p></article>
-        <article class="ind"><h3>Real estate</h3><p>Lead capture from portals and ads, site-visit scheduling, broker follow-ups, inventory updates.</p></article>
-        <article class="ind"><h3>Logistics &amp; transport</h3><p>Shipment status updates, proof-of-delivery filing, route and fleet reports, freight invoicing.</p></article>
-        <article class="ind"><h3>Education &amp; training</h3><p>Admissions pipelines, fee reminders, attendance and results reporting, parent communication.</p></article>
-        <article class="ind"><h3>Hospitality &amp; food</h3><p>Booking management, supplier orders, outlet sales reporting, review monitoring and replies.</p></article>
+      <div class="sectors">
+        <article class="sector"><h3>Retail &amp; e-commerce</h3><p>Order syncing across marketplaces, stock updates, returns processing, daily sales reports.</p></article>
+        <article class="sector"><h3>Manufacturing &amp; distribution</h3><p>Purchase orders, dispatch tracking, inventory reconciliation, dealer and distributor reporting.</p></article>
+        <article class="sector"><h3>Finance &amp; accounting firms</h3><p>Bank reconciliation, invoice extraction, GST and compliance data prep, client document collection.</p></article>
+        <article class="sector"><h3>Healthcare &amp; clinics</h3><p>Appointment reminders, patient intake forms, lab report delivery, billing follow-ups.</p></article>
+        <article class="sector"><h3>Real estate</h3><p>Lead capture from portals and ads, site-visit scheduling, broker follow-ups, inventory updates.</p></article>
+        <article class="sector"><h3>Logistics &amp; transport</h3><p>Shipment status updates, proof-of-delivery filing, route and fleet reports, freight invoicing.</p></article>
+        <article class="sector"><h3>Education &amp; training</h3><p>Admissions pipelines, fee reminders, attendance and results reporting, parent communication.</p></article>
+        <article class="sector"><h3>Hospitality &amp; food</h3><p>Booking management, supplier orders, outlet sales reporting, review monitoring and replies.</p></article>
       </div>
-      <p class="ind-more">Not on the list? It doesn't matter. If your team repeats it by hand, we can take it off them.</p>
+      <p class="ind-more">Not on the list? Send the task anyway. The test is the work, not the industry.</p>
     </div>
   </section>
 
@@ -541,58 +607,44 @@
       <ol class="steps">
         <li class="step">
           <h3>Map</h3>
-          <span class="dur">Week 1 · free</span>
-          <p>We sit with the people doing the work, list every manual step, and estimate the hours each one costs.</p>
+          <span class="dur">Week 1 <b>Free</b></span>
+          <p>The workflow audit. We go through the work with the people who do it, list every manual step and estimate the hours each one costs. You get it in writing, with a fixed quote for each item.</p>
         </li>
         <li class="step">
           <h3>Prove</h3>
-          <span class="dur">Weeks 2–4</span>
-          <p>We automate the highest-value step first and run it alongside the old way, so you can compare results directly.</p>
+          <span class="dur">Weeks 2–4 · fixed quote</span>
+          <p>We automate the highest-value step first, for the price quoted in the audit, and run it alongside the old way so you can compare. If it doesn't hold up, you stop there.</p>
         </li>
         <li class="step">
           <h3>Ship</h3>
-          <span class="dur">Per scope</span>
-          <p>We roll out the rest in priority order, with documentation and training for the team that will own it.</p>
+          <span class="dur">Per item · fixed quote</span>
+          <p>We roll out the rest in the order you choose, with documentation and training for the team that will own it.</p>
         </li>
         <li class="step">
           <h3>Run</h3>
-          <span class="dur">Ongoing</span>
+          <span class="dur">Monthly · optional</span>
           <p>We monitor, fix and extend what we built. You get a monthly note on what ran, what broke and what we changed.</p>
         </li>
       </ol>
-    </div>
-  </section>
-
-  <section id="engage">
-    <div class="wrap">
-      <div class="sec-head">
-        <span class="eyebrow">Working together</span>
-        <h2>Pick the shape that fits.</h2>
-      </div>
-      <div class="eng-grid">
-        <article class="eng">
-          <span class="tag">Start here</span>
-          <h3>Workflow audit</h3>
-          <p>A one-week review of how work moves through a team, ending in a prioritised list of what to automate and what it's worth.</p>
-          <dl><dt>Length</dt><dd>1 week</dd><dt>You get</dt><dd>Process map, savings estimate, plan</dd></dl>
-        </article>
-        <article class="eng featured">
-          <span class="tag">Most common</span>
-          <h3>Fixed-scope project</h3>
-          <p>A defined build with a fixed price and timeline, such as a dashboard, an integration or an internal tool.</p>
-          <dl><dt>Length</dt><dd>3–12 weeks</dd><dt>You get</dt><dd>Working software, docs, handover</dd></dl>
-        </article>
-        <article class="eng">
-          <span class="tag">Long term</span>
-          <h3>Monthly partnership</h3>
-          <p>A reserved block of our time each month to keep systems running and keep removing manual work, one step at a time.</p>
-          <dl><dt>Length</dt><dd>Monthly, 3-month minimum</dd><dt>You get</dt><dd>Support, upkeep, new automations</dd></dl>
-        </article>
+      <div class="terms">
+        <div class="terms-copy">
+          <h3>You don't commit until it works.</h3>
+          <p>We're new, so we can't ask you to trust a track record. These are the terms instead.</p>
+          <a class="btn btn-ink" href="#contact">Get a free workflow audit</a>
+        </div>
+        <ul class="sq-list">
+          <li>The first week is free, and the audit is yours to keep.</li>
+          <li>Every piece of work gets a fixed quote before it starts.</li>
+          <li>The first automation runs alongside your current process, so you compare before switching.</li>
+          <li>Code, data and accounts stay in your name.</li>
+          <li>Everything is documented so another developer could take it over.</li>
+          <li>If a task can't be automated well, we say so in the audit.</li>
+        </ul>
       </div>
     </div>
   </section>
 
-  <section id="faq" style="padding-top:0">
+  <section id="faq">
     <div class="wrap">
       <div class="sec-head">
         <span class="eyebrow">Questions</span>
@@ -600,32 +652,36 @@
       </div>
       <div class="faq">
         <details open>
-          <summary>What size of business do you work with?</summary>
-          <p>Small and mid-sized teams, usually 5 to 500 people, where a few people lose hours every week to repetitive work. You don't need an IT department to work with us.</p>
+          <summary>What does it cost?</summary>
+          <p>The first week, the audit, is free. It ends with a fixed quote for each piece of work, next to the hours that task costs you today, so you decide item by item before spending anything.</p>
         </details>
         <details>
-          <summary>What if our task isn't listed on this site?</summary>
-          <p>Send it anyway. The services and industries here are examples, not limits. If a task is manual and repeated, we can almost always automate it or cut it down a lot, and we'll tell you honestly in the first call if we can't.</p>
+          <summary>Who will we be dealing with?</summary>
+          <p>nullshift is a new, small studio based in India. You talk directly to the people doing the work, with no account managers and no hand-offs. We introduce ourselves properly in our first reply, and nothing starts, including any access to your data, without a written agreement.</p>
         </details>
-        <details>
-          <summary>Do you work with marketing agencies?</summary>
-          <p>Yes. We connect to the Meta and Google Ads accounts you manage (with your clients' permission) and automate reporting, alerts, lead routing and conversion tracking across all of them at once.</p>
+        <details open>
+          <summary>Who owns what you build?</summary>
+          <p>You do. Code, data and accounts stay in your name, and we document everything so another team could take it over.</p>
         </details>
         <details>
           <summary>Do we have to replace our existing software?</summary>
-          <p>Usually not. Most of our work connects and automates the tools you already pay for. We only suggest new software when the existing tool is the actual problem.</p>
-        </details>
-        <details>
-          <summary>Who owns what you build?</summary>
-          <p>You do. Code, data and accounts stay in your name, and we document everything so another team could take it over.</p>
+          <p>Usually not. The point is to connect and automate the tools you already pay for. We only suggest new software when the existing tool is the actual problem.</p>
         </details>
         <details>
           <summary>How do you handle our data?</summary>
           <p>We work inside your accounts wherever possible, use access that's limited to the job, and sign an NDA before we see anything sensitive. AI features are set up so your data isn't used to train public models.</p>
         </details>
         <details>
-          <summary>What does it cost?</summary>
-          <p>It depends on scope. The audit gives you a fixed quote for each piece of work along with the time it saves, so you can decide whether it's worth it before spending anything.</p>
+          <summary>What access do you need to our clients' ad accounts?</summary>
+          <p>Reporting, alerts and dashboards need read access only, granted through your Meta Business Manager and Google Ads manager account with your clients' permission. You can remove it at any time. Anything that changes a campaign, such as bulk ad creation, is separate and stays off until you approve it.</p>
+        </details>
+        <details>
+          <summary>We already use Looker Studio or a reporting tool. Why would we need you?</summary>
+          <p>You may not. If a subscription tool already does the job, keep it, and we'll say so. We're useful for what those tools leave to your team: reports in your own format, alerts tuned to each client's budget, leads that must reach a client's CRM, and naming rules nobody has time to police.</p>
+        </details>
+        <details>
+          <summary>What size of business is this for?</summary>
+          <p>Teams of roughly 5 to 500 people, where a few people lose hours every week to the same task. You don't need an IT department to work with us.</p>
         </details>
       </div>
     </div>
@@ -635,10 +691,19 @@
     <div class="wrap">
       <div class="contact-copy">
         <span class="eyebrow">Contact</span>
-        <h2>Tell us what eats your week.</h2>
-        <p class="lede">Describe one task your team repeats. We'll reply within two working days with how we'd take it off your plate.</p>
+        <h2>Tell us what eats your week<span class="sq" aria-hidden="true"></span></h2>
+        <p class="lede">Describe one task your team repeats. We reply within two working days with how we'd approach it, and whether the free one-week audit makes sense for you.</p>
+        <ol class="next" aria-label="What happens next">
+          <li>You describe one repetitive task, here or on WhatsApp.</li>
+          <li>We reply within two working days.</li>
+          <li>If it's a fit, we set up the free audit week. No obligation after it.</li>
+        </ol>
+        <div class="reach">
+          <a class="btn btn-ghost" href="https://wa.me/919662060400?text=Hi%20nullshift%2C%20here%20is%20a%20task%20we%27d%20like%20automated%3A%20" target="_blank" rel="noopener">Message us on WhatsApp</a>
+          <a class="reach-line" href="tel:+919662060400" aria-label="Call nullshift on +91 96620 60400">+91 96620 60400</a>
+        </div>
         <div class="mailbox">
-          <code id="email">nullshiftautomation@gmail.com</code>
+          <a id="email" href="mailto:nullshiftautomation@gmail.com">nullshiftautomation@gmail.com</a>
           <button type="button" class="copy-btn" id="copy">Copy</button>
         </div>
       </div>
@@ -647,20 +712,32 @@
           <label for="f-name">Name<input id="f-name" name="name" autocomplete="name" required></label>
           <label for="f-company">Company<input id="f-company" name="company" autocomplete="organization"></label>
         </div>
-        <label for="f-email">Work email<input id="f-email" name="email" type="email" autocomplete="email" required></label>
-        <label for="f-need">What do you need help with?
+        <div class="row2">
+          <label for="f-email">Email<input id="f-email" name="email" type="email" autocomplete="email" required></label>
+          <label for="f-phone">Phone or WhatsApp (optional)<input id="f-phone" name="phone" type="tel" autocomplete="tel"></label>
+        </div>
+        <input type="text" name="_honey" id="f-honey" tabindex="-1" autocomplete="off" aria-hidden="true" hidden>
+        <label for="f-need">What is it closest to? (optional)
           <select id="f-need" name="need">
+            <option>Not sure yet</option>
             <option>Workflow automation</option>
             <option>Data &amp; dashboards</option>
             <option>Custom software</option>
             <option>Applied AI</option>
             <option>Meta &amp; Google Ads automation</option>
-            <option>Not sure yet</option>
           </select>
         </label>
         <label for="f-msg">The task you'd like gone<textarea id="f-msg" name="message" placeholder="e.g. Every Monday two people spend the morning matching bank statements against invoices." required></textarea></label>
-        <button class="btn btn-primary" type="submit">Send</button>
+        <p class="form-hint">Goes straight to our inbox. We use your details only to reply to you.</p>
+        <div class="form-actions">
+          <button class="btn btn-primary" type="submit" id="send">Send</button>
+        </div>
         <p class="form-note" id="form-note" role="status"></p>
+        <div class="form-actions" id="fallback" hidden>
+          <button class="btn btn-ghost" type="button" id="open-mail">Open in my email app</button>
+          <button class="btn btn-ghost" type="button" id="open-gmail">Open in Gmail</button>
+          <button class="copy-btn" type="button" id="copy-msg">Copy the message</button>
+        </div>
       </form>
     </div>
   </section>
@@ -668,11 +745,10 @@
 
 <footer>
   <div class="wrap">
-    <a class="brand" href="#top">
-      <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="10.5" fill="none" stroke="var(--ink)" stroke-width="3"/><line x1="7" y1="27" x2="25" y2="5" stroke="var(--accent)" stroke-width="3" stroke-linecap="round"/></svg>
-      nullshift
+    <a class="brand" href="#top" aria-label="nullshift, back to top">
+      <svg class="wordmark" viewBox="0 0 450.7 87.1" aria-hidden="true"><use href="#wordmark"/></svg>
     </a>
-    <span>Software, data, AI and ads automation · © 2026 nullshift</span>
+    <span>Software, data, AI and ads automation · Based in India · <a href="tel:+919662060400">+91 96620 60400</a> · <a href="mailto:nullshiftautomation@gmail.com">nullshiftautomation@gmail.com</a> · © 2026 nullshift</span>
   </div>
 </footer>
 
@@ -680,7 +756,7 @@
   (function () {
     var EMAIL = document.getElementById("email").textContent.trim();
 
-    // Hero: strike through each manual task one by one.
+    // Hero: tick off each manual task one by one.
     var items = Array.prototype.slice.call(document.querySelectorAll("#log li"));
     var remaining = document.getElementById("remaining");
     var total = items.length;
@@ -692,37 +768,85 @@
     if (reduce) { mark(total); }
     else { items.forEach(function (_, i) { setTimeout(function () { mark(i + 1); }, 900 + i * 700); }); }
 
-    // Copy email.
-    var copyBtn = document.getElementById("copy");
-    copyBtn.addEventListener("click", function () {
+    function copyText(text, btn, label, fallbackEl) {
+      function done(msg) { btn.textContent = msg; setTimeout(function () { btn.textContent = label; }, 2000); }
       function selectIt() {
-        var r = document.createRange(); r.selectNodeContents(document.getElementById("email"));
+        if (!fallbackEl) { done("Copy failed"); return; }
+        var r = document.createRange(); r.selectNodeContents(fallbackEl);
         var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
-        copyBtn.textContent = "Selected";
+        done("Selected");
       }
       if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(EMAIL).then(function () { copyBtn.textContent = "Copied"; }, selectIt);
+        navigator.clipboard.writeText(text).then(function () { done("Copied"); }, selectIt);
       } else { selectIt(); }
-      setTimeout(function () { copyBtn.textContent = "Copy"; }, 2000);
-    });
+    }
 
-    // Contact form: validate, then hand off to the visitor's email app.
+    // Copy email.
+    var copyBtn = document.getElementById("copy");
+    copyBtn.addEventListener("click", function () { copyText(EMAIL, copyBtn, "Copy", document.getElementById("email")); });
+
+    // Contact form: posts to FormSubmit, which emails it to us. If that fails, offer the visitor's own email instead.
+    var ENDPOINT = "https://formsubmit.co/ajax/" + EMAIL;
     var form = document.getElementById("contact-form");
     var note = document.getElementById("form-note");
+    var sendBtn = document.getElementById("send");
+    var fallback = document.getElementById("fallback");
+    function say(text, kind) { note.className = "form-note" + (kind ? " " + kind : ""); note.textContent = text; }
+    function val(id) { return document.getElementById(id).value.trim(); }
+    function read() {
+      var d = { name: val("f-name"), company: val("f-company"), email: val("f-email"), phone: val("f-phone"), need: val("f-need"), message: val("f-msg") };
+      var bad = !d.name ? "f-name" : !/^\S+@\S+\.\S+$/.test(d.email) ? "f-email" : !d.message ? "f-msg" : null;
+      if (bad) {
+        say("Add your name, a valid email and a short description of the task first.", "warn");
+        document.getElementById(bad).focus();
+        return null;
+      }
+      d.subject = "nullshift enquiry: " + d.need;
+      d.body = d.message + "\n\n" + d.name + (d.company ? ", " + d.company : "") + "\n" + d.email + (d.phone ? "\n" + d.phone : "");
+      return d;
+    }
+    function failed() {
+      fallback.hidden = false;
+      say("That didn't go through. Please send it from your own email with one of the buttons below, or message us on WhatsApp.", "warn");
+    }
     form.addEventListener("submit", function (e) {
       e.preventDefault();
-      function val(id) { return document.getElementById(id).value.trim(); }
-      var name = val("f-name"), email = val("f-email"), msg = val("f-msg"), company = val("f-company"), need = val("f-need");
-      note.className = "form-note";
-      if (!name || !msg || !/^\S+@\S+\.\S+$/.test(email)) {
-        note.textContent = "Add your name, a valid email and a short description of the task, then send again.";
-        return;
-      }
-      var body = msg + "\n\n" + name + (company ? ", " + company : "") + "\n" + email;
-      var href = "mailto:" + EMAIL + "?subject=" + encodeURIComponent("nullshift enquiry: " + need) + "&body=" + encodeURIComponent(body);
-      var a = document.createElement("a"); a.href = href; a.click();
-      note.classList.add("ok");
-      note.textContent = "Your email app should open with this message ready. If it doesn't, write to " + EMAIL + ".";
+      var d = read(); if (!d) return;
+      if (val("f-honey")) { say("Thanks, your message is on its way."); return; }
+      sendBtn.disabled = true; sendBtn.textContent = "Sending…"; say("");
+      fetch(ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify({
+          name: d.name, company: d.company || "-", email: d.email, phone: d.phone || "-",
+          "closest to": d.need, message: d.message,
+          _subject: d.subject, _template: "table", _captcha: "false"
+        })
+      }).then(function (r) { return r.json(); }).then(function (res) {
+        if (String(res.success) !== "true") { failed(); return; }
+        form.reset(); fallback.hidden = true;
+        say("Sent. We reply within two working days, to " + d.email + ".", "sent");
+      }).catch(failed).then(function () { sendBtn.disabled = false; sendBtn.textContent = "Send"; });
+    });
+    var AFTER = " Press send there to reach us.";
+    document.getElementById("open-mail").addEventListener("click", function () {
+      var d = read(); if (!d) return;
+      var a = document.createElement("a");
+      a.href = "mailto:" + EMAIL + "?subject=" + encodeURIComponent(d.subject) + "&body=" + encodeURIComponent(d.body);
+      a.click();
+      say("Your email app should now be open with the message filled in." + AFTER);
+    });
+    document.getElementById("open-gmail").addEventListener("click", function () {
+      var d = read(); if (!d) return;
+      var url = "https://mail.google.com/mail/?view=cm&fs=1&to=" + encodeURIComponent(EMAIL) + "&su=" + encodeURIComponent(d.subject) + "&body=" + encodeURIComponent(d.body);
+      window.open(url, "_blank", "noopener");
+      say("Gmail should now be open in a new tab with the message filled in." + AFTER);
+    });
+    var copyMsg = document.getElementById("copy-msg");
+    copyMsg.addEventListener("click", function () {
+      var d = read(); if (!d) return;
+      copyText("To: " + EMAIL + "\nSubject: " + d.subject + "\n\n" + d.body, copyMsg, "Copy the message");
+      say("Message copied. Paste it into an email to " + EMAIL + ".");
     });
   })();
 </script>
