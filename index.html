@@ -13,7 +13,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="nullshift">
 <meta property="og:title" content="nullshift · We automate manual work">
-<meta property="og:description" content="Software that does your team's repetitive work for them. If it's manual, it's in scope. It starts with a free one-week audit.">
+<meta property="og:description" content="The report that took two days now builds itself. Software that does your team's repetitive work. It starts with a free one-week audit.">
 <meta property="og:url" content="https://illusionist-creator.github.io/nullshift/">
 <meta property="og:image" content="https://illusionist-creator.github.io/nullshift/brand/og-1200x630.png">
 <meta property="og:image:width" content="1200">
@@ -61,9 +61,11 @@
   ::selection { background: var(--accent); color: var(--accent-ink); }
   a { color: inherit; }
   :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
-  .anything :focus-visible, .process :focus-visible { outline-color: var(--paper-ink); }
+  .process :focus-visible { outline-color: var(--paper-ink); }
 
   .wrap { max-width: var(--wrap); margin-inline: auto; padding-inline: 24px; }
+  /* Grid children default to min-content width, which can push past a phone screen. */
+  .hero .wrap > *, .flow > *, .prob-grid > *, .proof > *, .contact .wrap > *, .anything > *, .terms > * { min-width: 0; }
   @media (max-width: 480px) { .wrap { padding-inline: 16px; } }
 
   h1, h2, h3 {
@@ -74,7 +76,7 @@
     text-wrap: balance;
     margin: 0;
   }
-  h1 { font-size: clamp(2.3rem, 6vw, 4.6rem); font-weight: 800; }
+  h1 { font-size: clamp(2.2rem, 5.2vw, 4rem); font-weight: 800; }
   h2 { font-size: clamp(1.8rem, 3.6vw, 2.8rem); font-weight: 800; }
   h3 { font-size: 1.2rem; font-weight: 700; letter-spacing: -0.015em; line-height: 1.2; }
   p { margin: 0; }
@@ -88,13 +90,10 @@
   }
   .eyebrow::before { content: ""; width: 8px; height: 8px; background: var(--accent); flex: none; }
   .tag { font-family: var(--mono); font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); }
-  .lede { font-size: 1.15rem; color: var(--ink-2); max-width: 60ch; }
+  .lede { font-size: 1.15rem; color: var(--ink-2); max-width: 56ch; }
   /* The logo's jumped square, used as a full stop. */
   .sq { display: inline-block; width: 0.2em; height: 0.2em; background: var(--accent); margin-left: 0.07em; }
-  /* Lists marked with the square. */
-  .sq-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
-  .sq-list li { display: grid; grid-template-columns: 18px 1fr; gap: 10px; }
-  .sq-list li::before { content: ""; width: 7px; height: 7px; background: var(--accent); margin-top: 0.62em; }
+  .num { font-family: var(--display); font-variation-settings: "wdth" 125; font-weight: 800; letter-spacing: -0.04em; line-height: 1; font-variant-numeric: tabular-nums; }
 
   /* Header */
   .top {
@@ -111,7 +110,7 @@
   .nav { display: flex; align-items: center; gap: 26px; font-size: 0.95rem; }
   .nav a { text-decoration: none; color: var(--ink-2); white-space: nowrap; }
   .nav a:hover { color: var(--ink); }
-  @media (max-width: 960px) { .nav a:not(.btn) { display: none; } }
+  @media (max-width: 860px) { .nav a:not(.btn) { display: none; } }
 
   .btn {
     display: inline-flex; align-items: center; justify-content: center; gap: 8px;
@@ -136,141 +135,160 @@
   .text-link { display: inline-flex; align-items: center; min-height: 44px; font-weight: 700; color: var(--accent); text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1.5px; }
   .text-link:hover { color: #ffffff; }
 
-  section { padding-block: 96px; }
-  @media (max-width: 640px) { section { padding-block: 64px; } }
-  .sec-head { display: grid; gap: 16px; margin-bottom: 48px; max-width: 760px; justify-items: start; }
+  section { padding-block: 88px; }
+  @media (max-width: 640px) { section { padding-block: 56px; } }
+  .sec-head { display: grid; gap: 14px; margin-bottom: 40px; max-width: 760px; justify-items: start; }
 
-  /* Hero */
-  .hero { padding-block: 80px 96px; }
-  .hero .wrap { display: grid; grid-template-columns: 1.15fr 1fr; gap: 56px; align-items: center; }
-  @media (max-width: 920px) { .hero .wrap { grid-template-columns: 1fr; } }
-  @media (max-width: 640px) { .hero { padding-block: 56px 64px; } }
-  .hero-copy { display: grid; gap: 24px; justify-items: start; }
-  .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
+  /* 1. Hero: the outcome in one line, and a panel that shows the hours coming back. */
+  .hero { padding-block: 72px 88px; }
+  .hero .wrap { display: grid; grid-template-columns: 1.05fr 1fr; gap: 56px; align-items: center; }
+  @media (max-width: 920px) { .hero .wrap { grid-template-columns: 1fr; gap: 40px; } }
+  @media (max-width: 640px) { .hero { padding-block: 48px 56px; } }
+  .hero-copy { display: grid; gap: 22px; justify-items: start; }
+  .hero-ctas { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 22px; margin-top: 6px; }
   .hero-alt { font-size: 0.95rem; color: var(--ink-2); }
   .hero-alt a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 4px; text-decoration-thickness: 1.5px; }
   .hero-alt a:hover { color: var(--accent); }
 
-  .log {
-    background: var(--surface);
-    border: 1px solid var(--line);
-    font-family: var(--mono);
-    font-size: 0.78rem;
-    overflow: hidden;
-  }
-  .log-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 6px 12px; padding: 14px 18px; border-bottom: 1px solid var(--line); color: var(--ink-2); text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.7rem; }
-  .log-head .dot { display: inline-block; width: 8px; height: 8px; background: var(--accent); margin-right: 10px; }
-  .log ol { list-style: none; margin: 0; padding: 0; }
-  .log li { display: grid; grid-template-columns: 1fr auto; gap: 4px 16px; padding: 14px 18px; border-bottom: 1px dashed var(--line); }
-  .log li:last-child { border-bottom: 0; }
-  .log .task { color: var(--ink); font-weight: 500; }
-  .log .cost { text-align: right; font-variant-numeric: tabular-nums; }
-  .log .cost .was { color: var(--ink-2); transition: opacity .3s ease; white-space: nowrap; }
-  .log .cost .now { color: var(--accent); font-weight: 500; display: none; white-space: nowrap; }
-  .log .how { grid-column: 1 / -1; color: var(--ink-2); }
-  .log li.done .was { text-decoration: line-through; opacity: 0.6; }
-  @media (max-width: 480px) {
-    .log li { grid-template-columns: 1fr; }
-    .log .cost { text-align: left; }
-  }
-  .log li.done .now { display: inline; margin-left: 10px; }
-  .log-foot { padding: 12px 18px; background: var(--surface-2); color: var(--ink-2); font-size: 0.72rem; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
-  .log-foot strong { color: var(--ink); font-weight: 500; font-variant-numeric: tabular-nums; }
+  .shift { background: var(--surface); border: 1px solid var(--line); font-family: var(--mono); font-size: 0.8rem; margin: 0; overflow: hidden; }
+  .shift-head { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 6px 12px; padding: 12px 18px; border-bottom: 1px solid var(--line); color: var(--ink-2); text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.66rem; }
+  .shift-head .dot { display: inline-block; width: 8px; height: 8px; background: var(--accent); margin-right: 10px; }
+  .shift-total { padding: 22px 18px 14px; display: grid; gap: 6px; border-bottom: 1px solid var(--line); }
+  .shift-total .num { font-size: clamp(2.8rem, 5vw, 3.6rem); }
+  .shift-total .num b { color: var(--accent); font-weight: inherit; }
+  .shift-total .num small { font-family: var(--mono); font-size: 0.78rem; font-weight: 400; letter-spacing: 0; color: var(--ink-2); margin-left: 8px; }
+  .shift-total .l { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-2); }
+  .shift ol { list-style: none; margin: 0; padding: 0; }
+  .shift li { display: grid; grid-template-columns: 1fr auto auto; gap: 8px 12px; align-items: center; padding: 12px 18px; border-bottom: 1px dashed var(--line); }
+  .shift li:last-child { border-bottom: 0; }
+  .shift .task { color: var(--ink); font-weight: 500; }
+  .shift .hrs { color: var(--ink-2); font-variant-numeric: tabular-nums; white-space: nowrap; transition: opacity .3s ease; }
+  .shift .bar { grid-column: 1 / -1; height: 5px; background: var(--line-strong); width: var(--w); transition: background-color .4s ease; }
+  .shift .stamp { visibility: hidden; justify-self: end; transform-origin: right center; background: var(--accent); color: var(--accent-ink); font-size: 0.62rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 3px 7px; white-space: nowrap; }
+  .shift li.done .hrs { text-decoration: line-through; opacity: 0.5; }
+  .shift li.done .bar { background: var(--accent); }
+  .shift li.done .stamp { visibility: visible; animation: stamp .35s cubic-bezier(.2,.9,.3,1.3) both; }
+  @keyframes stamp { from { transform: scale(1.2); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+  @media (prefers-reduced-motion: reduce) { .shift .bar, .shift .hrs { transition: none; } .shift li.done .stamp { animation: none; } }
 
-  /* Problems */
-  .problems { background: var(--surface); border-block: 1px solid var(--line); }
-  .prob-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
-  @media (max-width: 900px) { .prob-grid { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 600px) { .prob-grid { grid-template-columns: 1fr; } }
-  .prob { padding: 28px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); display: grid; gap: 12px; align-content: start; }
+  /* 2. Flow: every tool feeds a spine, the spine runs into nullshift, and the outputs come off a second spine. */
+  .flow-sec { background: var(--surface); border-block: 1px solid var(--line); }
+  .flow { display: grid; grid-template-columns: 1fr auto 1fr; grid-template-rows: auto auto; align-items: center; column-gap: 0; row-gap: 14px; margin-top: 8px; }
+  .flow h3 { font-family: var(--mono); font-size: 0.68rem; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-2); grid-row: 1; }
+  .flow h3.in { grid-column: 1; }
+  .flow h3.out-h { grid-column: 3; }
+  .bus { grid-row: 2; display: grid; gap: 10px; position: relative; }
+  .bus::after { content: ""; position: absolute; top: 22px; bottom: 22px; width: 1px; background: var(--line-strong); }
+  .flow-in { grid-column: 1; }
+  .flow-in::after { left: calc(100% + 24px); }
+  .flow-out { grid-column: 3; }
+  .flow-out::after { right: calc(100% + 24px); top: 33px; bottom: 33px; }
+  .chip, .out { position: relative; }
+  .chip { border: 1px solid var(--line-strong); padding: 10px 14px; font-weight: 600; font-size: 0.95rem; background: var(--bg); line-height: 1.4; height: 44px; }
+  .chip::after { content: ""; position: absolute; left: 100%; top: 50%; width: 24px; height: 1px; background: var(--line-strong); }
+  .flow-mid { grid-column: 2; grid-row: 2; position: relative; padding-inline: 72px; }
+  .flow-mid::before, .flow-mid::after { content: ""; position: absolute; top: 50%; width: 48px; height: 1px; background: var(--line-strong); }
+  .flow-mid::before { left: 24px; }
+  .flow-mid::after { right: 24px; }
+  .core { position: relative; background: var(--accent); color: var(--accent-ink); padding: 22px 24px 20px; display: grid; gap: 6px; width: 284px; }
+  .core::before { content: ""; position: absolute; left: -7px; top: 50%; transform: translateY(-50%); border: 5px solid transparent; border-left: 7px solid var(--line-strong); border-right: 0; }
+  .core .wordmark { height: 22px; width: 113.8px; transform: none; color: var(--accent-ink); }
+  .core ul { list-style: none; margin: 8px 0 0; padding: 12px 0 0; border-top: 1px solid color-mix(in srgb, var(--accent-ink) 35%, transparent); display: grid; gap: 6px; font-family: var(--mono); font-size: 0.74rem; }
+  .core li::before { content: "■ "; font-size: 0.55rem; vertical-align: 2px; }
+  .out { border-left: 3px solid var(--accent); background: var(--bg); padding: 10px 14px; display: grid; gap: 2px; align-content: center; min-height: 66px; }
+  .out::before { content: ""; position: absolute; right: 100%; top: 50%; width: 24px; height: 1px; background: var(--line-strong); }
+  .out::after { content: ""; position: absolute; left: -10px; top: 50%; transform: translateY(-50%); border: 5px solid transparent; border-left: 7px solid var(--line-strong); border-right: 0; }
+  .out b { font-weight: 600; font-size: 0.95rem; }
+  .out span { font-family: var(--mono); font-size: 0.7rem; color: var(--ink-2); letter-spacing: 0.04em; }
+  @media (max-width: 860px) {
+    .flow { grid-template-columns: 1fr; grid-template-rows: none; row-gap: 10px; }
+    .flow h3.in, .flow h3.out-h, .bus, .flow-mid { grid-column: 1; grid-row: auto; }
+    .flow h3.in { order: 1; } .flow-in { order: 2; } .flow-mid { order: 3; } .flow h3.out-h { order: 4; margin-top: 20px; } .flow-out { order: 5; }
+    .flow-mid { padding: 6px 0; justify-self: stretch; }
+    .flow-mid::before, .flow-mid::after, .bus::after, .chip::after, .out::before, .out::after, .core::before { display: none; }
+    .core { width: 100%; }
+    .flow-in { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 480px) { .flow-in { grid-template-columns: 1fr; } }
+
+  /* 3. Three problems, each with one number. */
+  .prob-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  @media (max-width: 900px) { .prob-grid { grid-template-columns: 1fr; } }
+  .prob { background: var(--surface); border: 1px solid var(--line); padding: 28px; display: grid; gap: 14px; align-content: start; justify-items: start; }
   @media (max-width: 480px) { .prob { padding: 22px 18px; } }
-  .prob .kind { font-family: var(--mono); font-size: 0.74rem; color: var(--ink-2); text-transform: uppercase; letter-spacing: 0.08em; }
-  .prob h3 { font-size: 1.22rem; line-height: 1.2; }
-  .prob p { color: var(--ink-2); font-size: 0.98rem; }
-  .prob .fix { color: var(--ink); font-size: 0.95rem; padding-top: 12px; border-top: 1px dashed var(--line); }
-  .prob .fix b { font-family: var(--mono); font-size: 0.74rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 4px; }
-
-  /* The one lime block on the page. */
-  .anything { margin-top: 64px; display: grid; grid-template-columns: 1fr 1.1fr; gap: 48px; align-items: center; padding: 44px; background: var(--accent); color: var(--accent-ink); }
-  @media (max-width: 900px) { .anything { grid-template-columns: 1fr; padding: 28px; gap: 28px; } }
+  .prob .kind { font-family: var(--mono); font-size: 0.7rem; color: var(--ink-2); text-transform: uppercase; letter-spacing: 0.1em; }
+  .prob h3 { font-size: 1.35rem; }
+  .prob .num { font-size: 2.6rem; color: var(--accent); padding-top: 6px; }
+  .prob .num small { display: block; font-family: var(--mono); font-size: 0.68rem; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-2); margin-top: 6px; }
+  .prob .fix { color: var(--ink); font-size: 0.98rem; padding-top: 14px; border-top: 1px dashed var(--line); width: 100%; }
+  .prob .fix b { font-family: var(--mono); font-size: 0.7rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 6px; }
+  .prob.agency { border-color: var(--accent); }
+  .anything { margin-top: 16px; display: grid; grid-template-columns: auto 1fr; gap: 20px 40px; align-items: center; padding: 28px; background: var(--accent); color: var(--accent-ink); }
+  @media (max-width: 860px) { .anything { grid-template-columns: 1fr; } }
   @media (max-width: 480px) { .anything { padding: 22px 18px; } }
-  .anything-copy { display: grid; gap: 16px; justify-items: start; }
-  .anything h2 { font-size: clamp(1.7rem, 3.2vw, 2.5rem); }
-  .anything .eyebrow, .anything .lede { color: var(--accent-ink-2); }
-  .anything .eyebrow::before { background: var(--accent-ink); }
+  .anything h3 { font-size: clamp(1.4rem, 2.6vw, 1.9rem); font-weight: 800; letter-spacing: -0.03em; }
+  .anything p { color: var(--accent-ink-2); font-size: 0.95rem; margin-top: 4px; }
   .chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
-  .chips li { font-size: 0.9rem; font-weight: 600; padding: 7px 12px; border: 1px solid color-mix(in srgb, var(--accent-ink) 55%, transparent); color: var(--accent-ink); }
+  .chips li { font-size: 0.88rem; font-weight: 600; padding: 6px 11px; border: 1px solid color-mix(in srgb, var(--accent-ink) 55%, transparent); }
+  .chips li.more { border-style: dashed; }
+  .chips li.more a { text-decoration: none; }
+  .chips li.more a:hover { text-decoration: underline; }
 
-  /* Work */
-  .work-grid { display: grid; grid-template-columns: 1.25fr 1fr; gap: 20px; align-items: start; }
-  @media (max-width: 900px) { .work-grid { grid-template-columns: 1fr; } }
-  .case { background: var(--surface); border: 1px solid var(--line); padding: 32px; display: grid; gap: 14px; align-content: start; justify-items: start; }
-  @media (max-width: 480px) { .case { padding: 22px 18px; } }
-  .case h3 { font-size: clamp(1.4rem, 2.4vw, 1.8rem); }
-  .case p { color: var(--ink-2); font-size: 0.98rem; }
-  .case-shot { display: block; width: 100%; border: 1px solid var(--line); margin-bottom: 6px; }
+  /* 4. Proof: one big piece of work with three numbers, one small, then four services. */
+  .work { background: var(--surface); border-block: 1px solid var(--line); }
+  .proof { display: grid; grid-template-columns: 1.45fr 1fr; gap: 16px; align-items: stretch; }
+  @media (max-width: 900px) { .proof { grid-template-columns: 1fr; } }
+  .case { background: var(--bg); border: 1px solid var(--line); display: grid; align-content: start; }
+  .case-shot { display: block; border-bottom: 1px solid var(--line); }
   .case-shot img { display: block; width: 100%; height: auto; }
-  .case-shot:hover { border-color: var(--accent); }
-  .case dl { width: 100%; margin: 6px 0 0; display: grid; grid-template-columns: 8.5rem 1fr; gap: 10px 16px; font-size: 0.92rem; border-top: 1px dashed var(--line); padding-top: 14px; }
-  .case dt { font-family: var(--mono); font-size: 0.74rem; color: var(--ink-2); padding-top: 3px; text-transform: uppercase; letter-spacing: 0.06em; }
-  .case dd { margin: 0; }
-  .case dd a { color: var(--accent); text-underline-offset: 3px; }
-  @media (max-width: 480px) { .case dl { grid-template-columns: 1fr; gap: 2px; } .case dd { margin-bottom: 10px; } }
+  .case-shot:hover { opacity: 0.92; }
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); border-bottom: 1px solid var(--line); }
+  .stat { padding: 18px 20px; display: grid; gap: 6px; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: 0; }
+  .stat .num { font-size: clamp(1.7rem, 3vw, 2.3rem); }
+  .stat .num.hi { color: var(--accent); }
+  .stat span { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-2); }
+  @media (max-width: 480px) { .stat { padding: 14px; } .stat .num { font-size: 1.5rem; } }
+  .case-body { padding: 22px 24px 24px; display: grid; gap: 10px; justify-items: start; }
+  @media (max-width: 480px) { .case-body { padding: 18px; } }
+  .case h3 { font-size: 1.5rem; }
+  .case p { color: var(--ink-2); font-size: 0.97rem; }
+  .case.small .case-body { padding-top: 24px; height: 100%; align-content: start; }
+  .case.small .num { font-size: 2.6rem; color: var(--ink); }
+  .case.small .num small { display: block; font-family: var(--mono); font-size: 0.66rem; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-2); margin-top: 6px; }
+  .svc-strip { margin-top: 16px; display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid var(--line); background: var(--bg); }
+  @media (max-width: 900px) { .svc-strip { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 520px) { .svc-strip { grid-template-columns: 1fr; } }
+  .svc { padding: 22px 22px 24px; border-right: 1px solid var(--line); display: grid; gap: 8px; align-content: start; }
+  .svc:last-child { border-right: 0; }
+  @media (max-width: 900px) { .svc:nth-child(2) { border-right: 0; } .svc:nth-child(-n+2) { border-bottom: 1px solid var(--line); } }
+  @media (max-width: 520px) { .svc { border-right: 0; border-bottom: 1px solid var(--line); } .svc:last-child { border-bottom: 0; } }
+  .svc .glyph { font-family: var(--mono); font-size: 0.74rem; color: var(--accent); }
+  .svc h3 { font-size: 1.08rem; }
+  .svc p { font-size: 0.92rem; color: var(--ink-2); }
 
-  /* Services */
-  .services { background: var(--surface); border-block: 1px solid var(--line); }
-  .svc-list { display: grid; gap: 0; border-top: 2px solid var(--ink); }
-  .svc { display: grid; grid-template-columns: 6.5rem 1fr 1.1fr; gap: 32px; padding-block: 36px; border-bottom: 1px solid var(--line); align-items: start; }
-  .svc:last-child { border-bottom: 0; padding-bottom: 0; }
-  @media (max-width: 860px) { .svc { grid-template-columns: 1fr; gap: 16px; } }
-  .svc .glyph { font-family: var(--mono); font-size: 0.78rem; color: var(--accent); padding-top: 6px; white-space: nowrap; }
-  .svc h3 { font-size: clamp(1.4rem, 2.4vw, 1.8rem); margin-bottom: 12px; }
-  .svc .intro { color: var(--ink-2); }
-  .svc .sq-list { font-size: 0.98rem; gap: 10px; }
-
-  /* Agencies */
-  .ag-box { display: grid; grid-template-columns: 1.25fr 1fr; border: 1px solid var(--accent); }
-  @media (max-width: 860px) { .ag-box { grid-template-columns: 1fr; } }
-  .ag-col { padding: 32px; display: grid; gap: 18px; align-content: start; }
-  .ag-col + .ag-col { border-left: 1px solid var(--line); }
-  @media (max-width: 860px) { .ag-col + .ag-col { border-left: 0; border-top: 1px solid var(--line); } }
-  @media (max-width: 480px) { .ag-col { padding: 22px 18px; } }
-  .ag-col p { color: var(--ink-2); font-size: 0.95rem; }
-  .ag-col .tag.muted { color: var(--ink-2); }
-  .ag-col .works-with { font-family: var(--mono); font-size: 0.74rem; line-height: 1.8; }
-  .ag-foot { margin-top: 28px; display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center; }
-  @media (max-width: 860px) { .ag-foot { grid-template-columns: 1fr; justify-items: start; } }
-  .ag-foot p { color: var(--ink-2); max-width: 62ch; }
-  .ag-foot p a { color: var(--ink); text-decoration-color: var(--accent); text-underline-offset: 4px; }
-
-  /* Industries */
-  .industries { background: var(--surface); border-block: 1px solid var(--line); }
-  .sectors { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 48px; border-top: 1px solid var(--line); }
-  @media (max-width: 860px) { .sectors { grid-template-columns: 1fr; } }
-  .sector { display: grid; grid-template-columns: 12.5rem 1fr; gap: 6px 20px; padding-block: 16px; border-bottom: 1px solid var(--line); align-items: baseline; }
-  @media (max-width: 520px) { .sector { grid-template-columns: 1fr; } }
-  .sector h3 { font-size: 1rem; }
-  .sector p { font-size: 0.92rem; color: var(--ink-2); }
-  .ind-more { margin-top: 28px; color: var(--ink-2); }
-
-  /* Process: the one white section. */
+  /* 5. How we work: the one white section. */
   .process { background: var(--paper); color: var(--paper-ink); }
   .process .eyebrow, .process .lede { color: var(--paper-ink-2); }
   .process .eyebrow::before { background: var(--paper-ink); }
-  .steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; counter-reset: step; }
-  @media (max-width: 900px) { .steps { grid-template-columns: repeat(2, 1fr); } }
+  .steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 0 24px; counter-reset: step; }
+  @media (max-width: 900px) { .steps { grid-template-columns: repeat(2, 1fr); gap: 24px; } }
   @media (max-width: 560px) { .steps { grid-template-columns: 1fr; } }
-  .step { padding: 28px 24px 28px 0; border-top: 2px solid var(--paper-ink); display: grid; gap: 10px; align-content: start; counter-increment: step; }
-  @media (max-width: 560px) { .step { padding-right: 0; } }
-  .step::before { content: "0" counter(step); font-family: var(--mono); font-size: 0.75rem; font-weight: 500; color: var(--paper-ink); }
-  .step .dur { font-family: var(--mono); font-size: 0.74rem; letter-spacing: 0.04em; color: var(--paper-ink-2); }
-  .step .dur b { font-weight: 500; background: var(--paper-ink); color: var(--paper); padding: 2px 7px; margin-left: 4px; }
-  .step p { color: var(--paper-ink-2); font-size: 0.96rem; }
-  .terms { margin-top: 40px; padding-top: 40px; border-top: 2px solid var(--paper-ink); display: grid; grid-template-columns: 1fr 1.5fr; gap: 48px; align-items: start; }
-  @media (max-width: 860px) { .terms { grid-template-columns: 1fr; gap: 28px; } }
+  .step { padding-top: 20px; border-top: 2px solid var(--paper-ink); display: grid; gap: 8px; align-content: start; counter-increment: step; }
+  .step.free { border-top-color: var(--accent); }
+  .step::before { content: "0" counter(step); font-family: var(--mono); font-size: 0.72rem; font-weight: 500; color: var(--paper-ink-2); }
+  .step h3 { font-size: 1.5rem; font-weight: 800; }
+  .step .dur { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.04em; color: var(--paper-ink-2); }
+  .step .dur b { font-weight: 500; background: var(--paper-ink); color: var(--paper); padding: 2px 7px; }
+  .step.free .dur b { background: var(--accent); color: var(--accent-ink); }
+  .step p { color: var(--paper-ink-2); font-size: 0.95rem; }
+  .terms { margin-top: 44px; padding-top: 36px; border-top: 2px solid var(--paper-ink); display: grid; grid-template-columns: 1fr 1.4fr; gap: 32px 48px; align-items: center; }
+  @media (max-width: 860px) { .terms { grid-template-columns: 1fr; gap: 24px; } }
   .terms-copy { display: grid; gap: 16px; justify-items: start; }
   .terms h3 { font-size: clamp(1.5rem, 2.8vw, 2.1rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.08; }
-  .terms-copy p { color: var(--paper-ink-2); }
+  .sq-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+  .sq-list li { display: grid; grid-template-columns: 18px 1fr; gap: 10px; }
+  .sq-list li::before { content: ""; width: 7px; height: 7px; background: var(--accent); margin-top: 0.62em; }
   .terms .sq-list { grid-template-columns: repeat(2, 1fr); gap: 14px 32px; font-weight: 600; }
   @media (max-width: 560px) { .terms .sq-list { grid-template-columns: 1fr; } }
   .terms .sq-list li::before { background: var(--paper-ink); }
@@ -278,11 +296,11 @@
   /* FAQ */
   .faq { display: grid; gap: 0; border-top: 1px solid var(--line); max-width: 820px; }
   .faq details { border-bottom: 1px solid var(--line); }
-  .faq summary { cursor: pointer; list-style: none; padding: 22px 40px 22px 0; font-weight: 650; font-size: 1.08rem; position: relative; }
+  .faq summary { cursor: pointer; list-style: none; padding: 20px 40px 20px 0; font-weight: 650; font-size: 1.06rem; position: relative; }
   .faq summary::-webkit-details-marker { display: none; }
-  .faq summary::after { content: "+"; position: absolute; right: 4px; top: 18px; font-family: var(--mono); font-size: 1.2rem; color: var(--accent); }
+  .faq summary::after { content: "+"; position: absolute; right: 4px; top: 16px; font-family: var(--mono); font-size: 1.2rem; color: var(--accent); }
   .faq details[open] summary::after { content: "−"; }
-  .faq details p { padding-bottom: 22px; color: var(--ink-2); max-width: 65ch; }
+  .faq details p { padding-bottom: 20px; color: var(--ink-2); max-width: 65ch; }
 
   /* Contact */
   .contact { background: var(--surface); border-top: 1px solid var(--line); }
@@ -339,10 +357,8 @@
       <svg class="wordmark" viewBox="0 0 450.7 87.1" aria-hidden="true"><use href="#wordmark"/></svg>
     </a>
     <nav class="nav" aria-label="Main">
-      <a href="#problems">What we solve</a>
+      <a href="#solve">What we solve</a>
       <a href="#work">Our work</a>
-      <a href="#services">Services</a>
-      <a href="#agencies">For agencies</a>
       <a href="#process">How we work</a>
       <a class="btn btn-primary" href="#contact">Get a free audit</a>
     </nav>
@@ -354,95 +370,112 @@
     <div class="wrap">
       <div class="hero-copy">
         <span class="eyebrow">Software &amp; automation studio · India</span>
-        <h1>Shift the busywork to zero<span class="sq" aria-hidden="true"></span></h1>
-        <p class="lede">nullshift builds software that does your team's repetitive work for them: the monthly report, the invoice entry, the copying from one system to another. For businesses of roughly 5 to 500 people, and for agencies running Meta and Google Ads. It starts with a free one-week audit.</p>
+        <h1>The report that took two days now builds itself<span class="sq" aria-hidden="true"></span></h1>
+        <p class="lede">We build software that does your team's repetitive work: reports, data entry, copying between systems. For businesses of 5 to 500 people, and for agencies running Meta and Google Ads.</p>
         <div class="hero-ctas">
-          <a class="btn btn-primary" href="#contact">Get a free workflow audit</a>
-          <a class="btn btn-ghost" href="#work">See work you can check</a>
+          <a class="btn btn-primary" href="#contact">Get a free one-week audit</a>
+          <p class="hero-alt">Run an agency? <a href="#agencies">Monday reports, automated</a></p>
         </div>
-        <p class="hero-alt">Run a marketing agency? <a href="#agencies">See Meta &amp; Google Ads automation</a></p>
       </div>
 
-      <figure class="log" aria-label="An illustration of manual tasks before and after automation. These are examples, not client results." style="margin:0">
-        <div class="log-head"><span><span class="dot"></span>Before and after</span><span>Illustration, not client results</span></div>
+      <figure class="shift" aria-label="An illustration of five manual tasks being automated, and the hours that come back each week. These are examples, not client results.">
+        <div class="shift-head"><span><span class="dot"></span>A typical week</span><span>Illustration, not client results</span></div>
+        <div class="shift-total">
+          <div class="num"><b id="hours">0</b> hrs<small>back every week</small></div>
+          <div class="l">Added up as each task is automated</div>
+        </div>
         <ol id="log">
-          <li><span class="task">Monthly MIS report</span><span class="cost"><span class="was">2 days</span><span class="now">automated</span></span><span class="how">Builds itself at 06:00 on the 1st</span></li>
-          <li><span class="task">Client ad reports</span><span class="cost"><span class="was">6 hrs/week</span><span class="now">automated</span></span><span class="how">Meta + Google Ads data pulled for every client each Monday</span></li>
-          <li><span class="task">Invoice data entry</span><span class="cost"><span class="was">40 min/day</span><span class="now">exceptions only</span></span><span class="how">Fields read when a PDF lands, odd ones passed to a person</span></li>
-          <li><span class="task">Stock reconciliation</span><span class="cost"><span class="was">3 hrs/week</span><span class="now">exceptions only</span></span><span class="how">Systems synced every hour, mismatches flagged</span></li>
-          <li><span class="task">Customer follow-ups</span><span class="cost"><span class="was">1 hr/day</span><span class="now">automated</span></span><span class="how">Sent when an order changes status</span></li>
+          <li data-h="6" style="--w:100%"><span class="task">Monday client ad reports</span><span class="hrs">6 hrs</span><span class="stamp">Automated</span><span class="bar"></span></li>
+          <li data-h="5" style="--w:83%"><span class="task">Customer follow-ups</span><span class="hrs">5 hrs</span><span class="stamp">Automated</span><span class="bar"></span></li>
+          <li data-h="4" style="--w:67%"><span class="task">Monthly MIS report</span><span class="hrs">4 hrs</span><span class="stamp">Automated</span><span class="bar"></span></li>
+          <li data-h="3" style="--w:50%"><span class="task">Invoice data entry</span><span class="hrs">3 hrs</span><span class="stamp">Exceptions only</span><span class="bar"></span></li>
+          <li data-h="3" style="--w:50%"><span class="task">Stock reconciliation</span><span class="hrs">3 hrs</span><span class="stamp">Exceptions only</span><span class="bar"></span></li>
         </ol>
-        <div class="log-foot"><span>Routine steps still done by hand</span><strong id="remaining">5 of 5</strong></div>
       </figure>
     </div>
   </section>
 
-  <section class="problems" id="problems">
+  <section class="flow-sec" id="how">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">How it works</span>
+        <h2>Your tools stay. The person in the middle goes<span class="sq" aria-hidden="true"></span></h2>
+        <p class="lede">We don't replace your software. We connect it, so the copying, checking and sending happen on their own.</p>
+      </div>
+      <div class="flow" role="img" aria-label="Diagram: your existing tools on the left feed nullshift in the middle, which produces reports, alerts, CRM entries and dashboards on the right.">
+        <h3 class="in">Where your data lives</h3>
+        <h3 class="out-h">What comes out</h3>
+        <div class="bus flow-in">
+          <div class="chip">Excel &amp; Google Sheets</div>
+          <div class="chip">Tally, Zoho, your ERP</div>
+          <div class="chip">CRM</div>
+          <div class="chip">Meta &amp; Google Ads</div>
+          <div class="chip">Email &amp; PDFs</div>
+          <div class="chip">WhatsApp</div>
+        </div>
+        <div class="flow-mid">
+          <div class="core">
+            <svg class="wordmark" viewBox="0 0 450.7 87.1" aria-hidden="true"><use href="#wordmark"/></svg>
+            <ul>
+              <li>watches for new data</li>
+              <li>reads and checks it</li>
+              <li>moves it where it belongs</li>
+              <li>asks a person when unsure</li>
+            </ul>
+          </div>
+        </div>
+        <div class="bus flow-out">
+          <div class="out"><b>Report in the inbox</b><span>Every Monday, 06:00, in your template</span></div>
+          <div class="out"><b>Alert on WhatsApp</b><span>When a budget or a number runs off plan</span></div>
+          <div class="out"><b>Lead in the CRM</b><span>Seconds after the form is filled</span></div>
+          <div class="out"><b>Invoice in the accounts</b><span>Read from the PDF, checked against the PO</span></div>
+          <div class="out"><b>Dashboard, always current</b><span>One agreed set of numbers</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="solve">
     <div class="wrap">
       <div class="sec-head">
         <span class="eyebrow">What we solve</span>
-        <h2>If your team says any of these, we should talk.</h2>
-        <p class="lede">Most businesses don't need another platform. They need the tools they already have to work together, and the manual glue between them removed.</p>
+        <h2>If your team says any of these, we should talk<span class="sq" aria-hidden="true"></span></h2>
       </div>
       <div class="prob-grid">
-        <article class="prob">
-          <span class="kind">Reporting is manual</span>
-          <h3>“The report takes two days every month.”</h3>
-          <p>Someone exports from four systems, pastes into Excel, fixes formulas and emails a PDF. It's late and it's never quite the same twice.</p>
-          <p class="fix"><b>We build</b>Reports that pull the data on a schedule, and live dashboards that are always current.</p>
-        </article>
-        <article class="prob">
-          <span class="kind">Tools don't talk to each other</span>
-          <h3>“We type the same thing into three places.”</h3>
-          <p>CRM, accounting, inventory and WhatsApp each hold part of the truth, and people carry data between them by hand.</p>
-          <p class="fix"><b>We build</b>Connections that keep your systems in sync, with alerts when something doesn't match.</p>
-        </article>
-        <article class="prob">
-          <span class="kind">Data is scattered</span>
-          <h3>“Nobody knows which number is right.”</h3>
-          <p>Every team has its own spreadsheet and its own version of revenue, stock or headcount. Decisions wait on reconciliation.</p>
-          <p class="fix"><b>We build</b>One agreed set of numbers that every report reads from, so revenue means the same thing in every meeting.</p>
-        </article>
-        <article class="prob">
-          <span class="kind">Client reporting is rebuilt by hand</span>
+        <article class="prob agency" id="agencies">
+          <span class="kind">Marketing agencies</span>
           <h3>“Monday is report day.”</h3>
-          <p>Someone opens Meta and Google Ads for every client, exports the numbers, pastes them into a deck and sends it. Then does it again next week.</p>
-          <p class="fix"><b>We build</b>Client reports that pull every account on a schedule and send themselves, with alerts when spend goes off plan.</p>
+          <div class="num">6 hrs<small>a week, at 15 clients</small></div>
+          <p class="fix"><b>We build</b>Client reports that pull Meta and Google Ads data for every account and send themselves, plus a WhatsApp alert when spend runs off plan. Read-only access: it can't touch a campaign.</p>
+          <a class="text-link" href="#contact">Get a free audit of your reporting</a>
         </article>
         <article class="prob">
-          <span class="kind">Off-the-shelf falls short</span>
-          <h3>“The software almost fits.”</h3>
-          <p>You pay for a big platform and still run the real process on sheets and calls, because it doesn't match how you work.</p>
-          <p class="fix"><b>We build</b>A focused tool built around how you actually work, in a browser or installed on a phone.</p>
+          <span class="kind">Accounts &amp; operations</span>
+          <h3>“Someone retypes every invoice.”</h3>
+          <div class="num">40 min<small>a day, every day</small></div>
+          <p class="fix"><b>We build</b>Fields read the moment a PDF lands and checked against the order. Clean ones go straight in. Odd ones go to a person, with the doubtful field marked.</p>
         </article>
         <article class="prob">
-          <span class="kind">AI without a plan</span>
-          <h3>“We should be using AI, but where?”</h3>
-          <p>There's pressure to adopt AI, but demos don't survive contact with real documents, real customers and real edge cases.</p>
-          <p class="fix"><b>We build</b>AI for specific jobs: reading documents, drafting replies, sorting requests. Each one tested on your own data before it goes live.</p>
+          <span class="kind">Everyone</span>
+          <h3>“We type the same thing into three places.”</h3>
+          <div class="num">3<small>systems, one truth</small></div>
+          <p class="fix"><b>We build</b>Your CRM, accounts, stock and WhatsApp kept in sync on their own, with an alert the moment two of them disagree.</p>
         </article>
       </div>
-
       <div class="anything">
-        <div class="anything-copy">
-          <span class="eyebrow">And everything else</span>
-          <h2>If it's manual, it's in scope.</h2>
-          <p class="lede">The six above are only examples. Our test is simple: if someone on your team does it by hand, on repeat, following steps they could write down, it can usually be automated or cut down a lot. If it can't, we say so in the audit, before you've spent anything.</p>
-          <a class="btn btn-ink" href="#contact">Send us one task</a>
+        <div>
+          <h3>If it's manual, it's in scope.</h3>
+          <p>Done by hand, on repeat, following steps you could write down? Send it to us.</p>
         </div>
-        <ul class="chips" aria-label="Examples of manual work we take on">
-          <li>Copy-pasting between systems</li>
-          <li>Data entry from PDFs &amp; emails</li>
-          <li>Updating spreadsheets</li>
+        <ul class="chips" aria-label="Other tasks we automate">
           <li>Matching payments to invoices</li>
           <li>Chasing approvals</li>
-          <li>Reminders &amp; follow-ups</li>
-          <li>Formatting weekly reports</li>
-          <li>Onboarding paperwork</li>
           <li>Moving leads into the CRM</li>
+          <li>Weekly report formatting</li>
+          <li>Fee &amp; payment reminders</li>
+          <li>Filing &amp; renaming documents</li>
           <li>Answering the same questions</li>
-          <li>Scheduling &amp; rostering</li>
-          <li>Renaming &amp; filing documents</li>
+          <li class="more"><a href="#contact">Your task →</a></li>
         </ul>
       </div>
     </div>
@@ -452,155 +485,42 @@
     <div class="wrap">
       <div class="sec-head">
         <span class="eyebrow">Proof</span>
-        <h2>Built by us. Open it and check.</h2>
-        <p class="lede">nullshift is a new studio, so there is no wall of client logos here yet. This is our own work, built the way we would build yours.</p>
+        <h2>Built by us. Open it and check<span class="sq" aria-hidden="true"></span></h2>
+        <p class="lede">We're a new studio, so there's no wall of client logos. This is our own work, built the way we'd build yours.</p>
       </div>
-      <div class="work-grid">
+      <div class="proof">
         <article class="case">
           <a class="case-shot" href="https://illusionist-creator.github.io/rbi-payments-data/" target="_blank" rel="noopener" aria-label="Open the India Card Monitor dashboard in a new tab">
             <img src="assets/india-card-monitor.webp" width="1200" height="717" loading="lazy" alt="The India Card Monitor dashboard: credit cards outstanding, monthly card payments, and each bank's share over time.">
           </a>
-          <span class="tag">Data pipeline · live</span>
-          <h3>India Card Monitor</h3>
-          <p>A public dashboard tracking India's credit card, debit card and UPI payments, bank by bank. The Reserve Bank of India publishes the figures as one Excel file a month, in layouts that have changed several times since 2011. NPCI publishes the UPI figures separately.</p>
-          <dl>
-            <dt>What it handles</dt><dd>Every monthly file since April 2011, more than 180 of them, covering 86 banks whose names appear in 190 different spellings.</dd>
-            <dt>How it runs</dt><dd>Every Monday and Thursday a scheduled job checks both sources, downloads anything new or revised, re-processes every file and republishes the dashboard.</dd>
-            <dt>Manual steps</dt><dd>None.</dd>
-            <dt>Why it matters</dt><dd>It is the same job as a monthly MIS report or a client ad report: files arrive from different sources in changing formats, and a finished report comes out with nobody touching it.</dd>
-          </dl>
-          <a class="text-link" href="https://illusionist-creator.github.io/rbi-payments-data/" target="_blank" rel="noopener">Open the live dashboard</a>
-        </article>
-        <article class="case">
-          <span class="tag">Custom software · private beta</span>
-          <h3>Darshan</h3>
-          <p>An installable web app that helps people find and plan visits to temples in Ahmedabad, Bengaluru and Mumbai. It works like a phone app, without an app-store download.</p>
-          <dl>
-            <dt>What's inside</dt><dd>1,635 temples on a searchable map, and a daily calendar in four regional traditions that the app calculates itself. Nobody types it in.</dd>
-            <dt>Why it matters</dt><dd>It is a complete customer-facing app: the same kind of build as a booking, ordering or dealer app.</dd>
-            <dt>Status</dt><dd>Private beta, not public yet. <a href="#contact">Ask us for a walkthrough</a>.</dd>
-          </dl>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="services" id="services">
-    <div class="wrap">
-      <div class="sec-head">
-        <span class="eyebrow">Services</span>
-        <h2>Four ways we take work off your plate.</h2>
-        <p class="lede">We work with the tools you already have, and only suggest new software when the existing tool is the actual problem.</p>
-      </div>
-      <div class="svc-list">
-        <article class="svc">
-          <span class="glyph">[ automate ]</span>
-          <div>
-            <h3>Workflow automation &amp; integrations</h3>
-            <p class="intro">We map how work moves through your business, find the steps a person shouldn't be doing, and wire your tools together so they happen on their own.</p>
+          <div class="stats">
+            <div class="stat"><div class="num">180+</div><span>Monthly files since 2011</span></div>
+            <div class="stat"><div class="num">86</div><span>Banks, 190 spellings</span></div>
+            <div class="stat"><div class="num hi">0</div><span>Manual steps</span></div>
           </div>
-          <ul class="sq-list">
-            <li>A workflow audit with an hours-saved estimate for each step</li>
-            <li>Connections between your CRM, ERP, accounting software and WhatsApp or email, so data is entered once</li>
-            <li>Scheduled jobs, approvals and alerts when something needs a person</li>
-            <li>Email, WhatsApp and SMS messages sent automatically when something happens</li>
-          </ul>
-        </article>
-        <article class="svc">
-          <span class="glyph">[ measure ]</span>
-          <div>
-            <h3>Data pipelines &amp; dashboards</h3>
-            <p class="intro">We collect data from wherever it lives, clean it once, and put it in front of the people who decide, refreshed automatically.</p>
+          <div class="case-body">
+            <span class="tag">Data pipeline · live</span>
+            <h3>India Card Monitor</h3>
+            <p>RBI publishes India's card payments as one Excel file a month, in layouts that keep changing. Twice a week a scheduled job picks up anything new, rebuilds every file and republishes this public dashboard. Nobody touches it. It's the same job as your monthly MIS or your client ad report.</p>
+            <a class="text-link" href="https://illusionist-creator.github.io/rbi-payments-data/" target="_blank" rel="noopener">Open the live dashboard</a>
           </div>
-          <ul class="sq-list">
-            <li>Data pulled from databases, spreadsheets, other software and public sources</li>
-            <li>One place for all your data, with each figure defined once</li>
-            <li>Dashboards in Tableau, Power BI, Looker Studio or a custom web page</li>
-            <li>Scheduled reports delivered to inbox or chat</li>
-          </ul>
         </article>
-        <article class="svc">
-          <span class="glyph">[ build ]</span>
-          <div>
-            <h3>Custom software</h3>
-            <p class="intro">When nothing on the market fits, we build a focused tool that does exactly your job and nothing you'll pay for but never use.</p>
+        <article class="case small">
+          <div class="case-body">
+            <span class="tag">Custom app · private beta</span>
+            <h3>Darshan</h3>
+            <div class="num">1,635<small>temples on a searchable map</small></div>
+            <p>An installable web app for planning temple visits in three cities, with a daily calendar in four traditions that the app calculates itself. The same kind of build as a booking, ordering or dealer app.</p>
+            <a class="text-link" href="#contact">Ask for a walkthrough</a>
           </div>
-          <ul class="sq-list">
-            <li>Internal tools and admin panels for operations teams</li>
-            <li>Apps for your customers that open in a browser or install on a phone</li>
-            <li>Forms, approvals and booking flows that replace a paper or WhatsApp process</li>
-            <li>Replacing a spreadsheet or macro the business depends on, in safe stages</li>
-          </ul>
-        </article>
-        <article class="svc">
-          <span class="glyph">[ assist ]</span>
-          <div>
-            <h3>Applied AI</h3>
-            <p class="intro">We put AI to work on specific, repetitive jobs and test it against your real data before anyone relies on it.</p>
-          </div>
-          <ul class="sq-list">
-            <li>Reading invoices, forms and purchase orders so nobody retypes them</li>
-            <li>Assistants that answer from your own policies and records</li>
-            <li>AI that sorts incoming requests, drafts replies and passes them to the right person, with a human approving</li>
-            <li>Accuracy checked on your own documents before launch, and tracked after</li>
-          </ul>
         </article>
       </div>
-    </div>
-  </section>
-
-  <section class="agencies" id="agencies">
-    <div class="wrap">
-      <div class="sec-head">
-        <span class="eyebrow">For marketing agencies</span>
-        <h2>Your team shouldn't be pulling numbers out of Ads Manager.</h2>
-        <p class="lede">In most agencies, someone pulls numbers from Meta and Google Ads, pastes them into client decks, and checks that no budget ran away overnight. We automate that layer across every client account. We don't run your campaigns; we remove the busywork around them.</p>
+      <div class="svc-strip" aria-label="Services">
+        <div class="svc"><span class="glyph">[ automate ]</span><h3>Workflow automation</h3><p>Your tools wired together, so data is entered once.</p></div>
+        <div class="svc"><span class="glyph">[ measure ]</span><h3>Data &amp; dashboards</h3><p>One agreed set of numbers, refreshed on a schedule.</p></div>
+        <div class="svc"><span class="glyph">[ build ]</span><h3>Custom software</h3><p>A focused tool when nothing on the market fits.</p></div>
+        <div class="svc"><span class="glyph">[ assist ]</span><h3>Applied AI</h3><p>Reads documents and drafts replies. Tested on your data first.</p></div>
       </div>
-      <div class="ag-box">
-        <div class="ag-col">
-          <span class="tag">Where we start: reporting and monitoring</span>
-          <ul class="sq-list">
-            <li>Client reports built from Meta and Google Ads data for every account, on schedule, in your branding</li>
-            <li>Alerts in Slack or WhatsApp when a budget over- or under-spends, an ad is disapproved or tracking breaks</li>
-            <li>Leads from Meta and Google lead forms delivered to the client's CRM or sales team within seconds</li>
-            <li>One dashboard across all clients: spend, leads, cost per lead and ROAS</li>
-          </ul>
-          <p>Reports, alerts and dashboards run on read-only access. They can't change a campaign or spend a rupee.</p>
-        </div>
-        <div class="ag-col">
-          <span class="tag muted">Once the basics run</span>
-          <ul class="sq-list">
-            <li>Conversion tracking that sends real sales back to the platforms (Conversions API, offline and enhanced conversions)</li>
-            <li>Bulk campaign and ad creation from a sheet, with your naming and UTM rules enforced</li>
-          </ul>
-          <p class="works-with">Works with: Meta Marketing API · Google Ads API · Conversions API · GA4 · Looker Studio · BigQuery</p>
-        </div>
-      </div>
-      <div class="ag-foot">
-        <p>Start with the free one-week audit: we map your reporting and monitoring routine and tell you which parts are worth automating, and which an off-the-shelf tool already covers. The same kind of pipeline is already running on public data in <a href="#work">our own work</a>.</p>
-        <a class="btn btn-primary" href="#contact">Get a free audit of your reporting</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="industries" id="industries">
-    <div class="wrap">
-      <div class="sec-head">
-        <span class="eyebrow">Industries</span>
-        <h2>Different industries, the same manual work.</h2>
-        <p class="lede">Every sector has its own tools, but the repetitive work looks much the same. Some examples of where it piles up.</p>
-      </div>
-      <div class="sectors">
-        <article class="sector"><h3>Retail &amp; e-commerce</h3><p>Order syncing across marketplaces, stock updates, returns processing, daily sales reports.</p></article>
-        <article class="sector"><h3>Manufacturing &amp; distribution</h3><p>Purchase orders, dispatch tracking, inventory reconciliation, dealer and distributor reporting.</p></article>
-        <article class="sector"><h3>Finance &amp; accounting firms</h3><p>Bank reconciliation, invoice extraction, GST and compliance data prep, client document collection.</p></article>
-        <article class="sector"><h3>Healthcare &amp; clinics</h3><p>Appointment reminders, patient intake forms, lab report delivery, billing follow-ups.</p></article>
-        <article class="sector"><h3>Real estate</h3><p>Lead capture from portals and ads, site-visit scheduling, broker follow-ups, inventory updates.</p></article>
-        <article class="sector"><h3>Logistics &amp; transport</h3><p>Shipment status updates, proof-of-delivery filing, route and fleet reports, freight invoicing.</p></article>
-        <article class="sector"><h3>Education &amp; training</h3><p>Admissions pipelines, fee reminders, attendance and results reporting, parent communication.</p></article>
-        <article class="sector"><h3>Hospitality &amp; food</h3><p>Booking management, supplier orders, outlet sales reporting, review monitoring and replies.</p></article>
-      </div>
-      <p class="ind-more">Not on the list? Send the task anyway. The test is the work, not the industry.</p>
     </div>
   </section>
 
@@ -608,44 +528,41 @@
     <div class="wrap">
       <div class="sec-head">
         <span class="eyebrow">How we work</span>
-        <h2>Small, provable steps.</h2>
-        <p class="lede">You see a working result early, and you only commit to more once it has earned it.</p>
+        <h2>Small, provable steps<span class="sq" aria-hidden="true"></span></h2>
+        <p class="lede">You see a working result early, and only commit to more once it has earned it.</p>
       </div>
       <ol class="steps">
-        <li class="step">
+        <li class="step free">
           <h3>Map</h3>
           <span class="dur">Week 1 <b>Free</b></span>
-          <p>The workflow audit. We go through the work with the people who do it, list every manual step and estimate the hours each one costs. You get it in writing, with a fixed quote for each item.</p>
+          <p>We list every manual step, the hours it costs, and a fixed quote for each. Yours to keep.</p>
         </li>
         <li class="step">
           <h3>Prove</h3>
-          <span class="dur">Weeks 2–4 · fixed quote</span>
-          <p>We automate the highest-value step first, for the price quoted in the audit, and run it alongside the old way so you can compare. If it doesn't hold up, you stop there.</p>
+          <span class="dur">Weeks 2–4 <b>Fixed quote</b></span>
+          <p>The highest-value step first, run alongside the old way. If it doesn't hold up, you stop there.</p>
         </li>
         <li class="step">
           <h3>Ship</h3>
-          <span class="dur">Per item · fixed quote</span>
-          <p>We roll out the rest in the order you choose, with training for the team that will use it.</p>
+          <span class="dur">Per item <b>Fixed quote</b></span>
+          <p>The rest, in the order you choose, with training for the team that will use it.</p>
         </li>
         <li class="step">
           <h3>Run</h3>
-          <span class="dur">Monthly · fixed fee</span>
-          <p>We host, monitor, fix and extend what we built. You get a monthly note on what ran, what broke and what we changed.</p>
+          <span class="dur">Monthly <b>Fixed fee</b></span>
+          <p>We host, monitor and fix what we built, with a monthly note on what ran and what changed.</p>
         </li>
       </ol>
       <div class="terms">
         <div class="terms-copy">
           <h3>You don't commit until it works.</h3>
-          <p>We're new, so we can't ask you to trust a track record. These are the terms instead.</p>
           <a class="btn btn-ink" href="#contact">Get a free workflow audit</a>
         </div>
         <ul class="sq-list">
           <li>The first week is free, and the audit is yours to keep.</li>
-          <li>Every piece of work gets a fixed quote before it starts.</li>
-          <li>The first automation runs alongside your current process, so you compare before switching.</li>
-          <li>Your data and accounts stay in your name. If you leave, we hand your data back.</li>
-          <li>Want it in-house later? You can buy the code at a price fixed in the agreement.</li>
-          <li>If a task can't be automated well, we say so in the audit.</li>
+          <li>Every job gets a fixed quote before it starts.</li>
+          <li>The first automation runs alongside your current process.</li>
+          <li>Your data and accounts stay yours. Buy the code later if you want it in-house.</li>
         </ul>
       </div>
     </div>
@@ -655,40 +572,24 @@
     <div class="wrap">
       <div class="sec-head">
         <span class="eyebrow">Questions</span>
-        <h2>Before you ask.</h2>
+        <h2>Before you ask<span class="sq" aria-hidden="true"></span></h2>
       </div>
       <div class="faq">
         <details open>
           <summary>What does it cost?</summary>
-          <p>The first week, the audit, is free. It ends with a fixed quote for each piece of work, next to the hours that task costs you today, so you decide item by item before spending anything. Once something is live, a fixed monthly fee covers hosting, monitoring and fixes.</p>
+          <p>The first week, the audit, is free. It ends with a fixed quote for each piece of work, next to the hours that task costs you today. Once something is live, a fixed monthly fee covers hosting, monitoring and fixes.</p>
+        </details>
+        <details>
+          <summary>Who owns what you build?</summary>
+          <p>Your data and your accounts are yours, always. The code is ours: we host and run it for you. If you want it in-house, you can buy the code outright at a price agreed in writing before work starts. If you leave without buying it, we export your data and switch the automation off.</p>
+        </details>
+        <details>
+          <summary>How do you handle our data and ad accounts?</summary>
+          <p>Access limited to the job, an NDA before we see anything sensitive, and your data kept only as long as the automation needs it. Reports and alerts on ad accounts use read-only access, granted through your Business Manager, which you can remove at any time. AI features never train public models on your data.</p>
         </details>
         <details>
           <summary>Who will we be dealing with?</summary>
-          <p>nullshift is a new, small studio based in India. You talk directly to the people doing the work, with no account managers and no hand-offs. We introduce ourselves properly in our first reply, and nothing starts, including any access to your data, without a written agreement.</p>
-        </details>
-        <details open>
-          <summary>Who owns what you build?</summary>
-          <p>Your data and your accounts are yours, always. The code is ours: we host and run it for you, and the monthly fee keeps it monitored and fixed. If you want to take it in-house, you can buy the code outright at a price agreed in writing before work starts. If you leave without buying it, we export your data and switch the automation off.</p>
-        </details>
-        <details>
-          <summary>Do we have to replace our existing software?</summary>
-          <p>Usually not. The point is to connect and automate the tools you already pay for. We only suggest new software when the existing tool is the actual problem.</p>
-        </details>
-        <details>
-          <summary>How do you handle our data?</summary>
-          <p>We connect to your accounts with access that's limited to the job, keep your data only as long as the automation needs it, and sign an NDA before we see anything sensitive. AI features are set up so your data isn't used to train public models.</p>
-        </details>
-        <details>
-          <summary>What access do you need to our clients' ad accounts?</summary>
-          <p>Reporting, alerts and dashboards need read access only, granted through your Meta Business Manager and Google Ads manager account with your clients' permission. You can remove it at any time. Anything that changes a campaign, such as bulk ad creation, is separate and stays off until you approve it.</p>
-        </details>
-        <details>
-          <summary>We already use Looker Studio or a reporting tool. Why would we need you?</summary>
-          <p>You may not. If a subscription tool already does the job, keep it, and we'll say so. We're useful for what those tools leave to your team: reports in your own format, alerts tuned to each client's budget, leads that must reach a client's CRM, and naming rules nobody has time to police.</p>
-        </details>
-        <details>
-          <summary>What size of business is this for?</summary>
-          <p>Teams of roughly 5 to 500 people, where a few people lose hours every week to the same task. You don't need an IT department to work with us.</p>
+          <p>A new, small studio based in India. You talk directly to the people doing the work. We introduce ourselves properly in our first reply, and nothing starts, including any access, without a written agreement.</p>
         </details>
       </div>
     </div>
@@ -699,11 +600,10 @@
       <div class="contact-copy">
         <span class="eyebrow">Contact</span>
         <h2>Tell us what eats your week<span class="sq" aria-hidden="true"></span></h2>
-        <p class="lede">Describe one task your team repeats. We reply within two working days with how we'd approach it, and whether the free one-week audit makes sense for you.</p>
         <ol class="next" aria-label="What happens next">
-          <li>You describe one repetitive task, here or on WhatsApp.</li>
-          <li>We reply within two working days.</li>
-          <li>If it's a fit, we set up the free audit week. No obligation after it.</li>
+          <li>Describe one task your team repeats, here or on WhatsApp.</li>
+          <li>We reply within two working days with how we'd approach it.</li>
+          <li>If it's a fit, the free audit week starts. No obligation after it.</li>
         </ol>
         <div class="reach">
           <a class="btn btn-ghost" href="https://wa.me/919662060400?text=Hi%20nullshift%2C%20here%20is%20a%20task%20we%27d%20like%20automated%3A%20" target="_blank" rel="noopener">Message us on WhatsApp</a>
@@ -727,11 +627,11 @@
         <label for="f-need">What is it closest to? (optional)
           <select id="f-need" name="need">
             <option>Not sure yet</option>
-            <option>Workflow automation</option>
-            <option>Data &amp; dashboards</option>
-            <option>Custom software</option>
-            <option>Applied AI</option>
-            <option>Meta &amp; Google Ads automation</option>
+            <option>Reports &amp; dashboards</option>
+            <option>Data entry &amp; documents</option>
+            <option>Connecting our systems</option>
+            <option>Meta &amp; Google Ads reporting</option>
+            <option>A custom app</option>
           </select>
         </label>
         <label for="f-msg">The task you'd like gone<textarea id="f-msg" name="message" placeholder="e.g. Every Monday two people spend the morning matching bank statements against invoices." required></textarea></label>
@@ -755,7 +655,7 @@
     <a class="brand" href="#top" aria-label="nullshift, back to top">
       <svg class="wordmark" viewBox="0 0 450.7 87.1" aria-hidden="true"><use href="#wordmark"/></svg>
     </a>
-    <span>Software, data, AI and ads automation · Based in India · <a href="tel:+919662060400">+91 96620 60400</a> · <a href="mailto:nullshiftautomation1@gmail.com">nullshiftautomation1@gmail.com</a> · © 2026 nullshift</span>
+    <span>Shift the busywork to zero · Based in India · <a href="tel:+919662060400">+91 96620 60400</a> · <a href="mailto:nullshiftautomation1@gmail.com">nullshiftautomation1@gmail.com</a> · © 2026 nullshift</span>
   </div>
 </footer>
 
@@ -763,17 +663,17 @@
   (function () {
     var EMAIL = document.getElementById("email").textContent.trim();
 
-    // Hero: tick off each manual task one by one.
+    // Hero: stamp each manual task as automated, and add its hours to the total.
     var items = Array.prototype.slice.call(document.querySelectorAll("#log li"));
-    var remaining = document.getElementById("remaining");
-    var total = items.length;
+    var hours = document.getElementById("hours");
     function mark(n) {
-      items.forEach(function (li, i) { li.classList.toggle("done", i < n); });
-      remaining.textContent = (total - n) + " of " + total;
+      var sum = 0;
+      items.forEach(function (li, i) { li.classList.toggle("done", i < n); if (i < n) sum += Number(li.getAttribute("data-h")); });
+      hours.textContent = sum;
     }
     var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduce) { mark(total); }
-    else { items.forEach(function (_, i) { setTimeout(function () { mark(i + 1); }, 900 + i * 700); }); }
+    if (reduce) { mark(items.length); }
+    else { items.forEach(function (_, i) { setTimeout(function () { mark(i + 1); }, 900 + i * 650); }); }
 
     function copyText(text, btn, label, fallbackEl) {
       function done(msg) { btn.textContent = msg; setTimeout(function () { btn.textContent = label; }, 2000); }
