@@ -250,6 +250,10 @@
   .case p { color: var(--ink-2); font-size: 0.97rem; }
   .case.small .case-body { padding-top: 24px; height: 100%; align-content: start; }
   .case.small .num { font-size: 2.6rem; color: var(--ink); }
+  .case.wide { grid-column: 1 / -1; grid-template-columns: 1.45fr 1fr; }
+  .case.wide .case-shot { border-bottom: 0; border-right: 1px solid var(--line); }
+  .case.wide .stats { border-top: 0; }
+  @media (max-width: 900px) { .case.wide { grid-template-columns: 1fr; } .case.wide .case-shot { border-right: 0; border-bottom: 1px solid var(--line); } }
   .case.small .num small { display: block; font-family: var(--mono); font-size: 0.66rem; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-2); margin-top: 6px; }
   .svc-strip { margin-top: 16px; display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid var(--line); background: var(--bg); }
   @media (max-width: 900px) { .svc-strip { grid-template-columns: repeat(2, 1fr); } }
@@ -505,6 +509,24 @@
             <div class="num">1,635<small>temples on a searchable map</small></div>
             <p>An installable web app for planning temple visits in three cities, with a daily calendar in four traditions that the app calculates itself. The same kind of build as a booking, ordering or dealer app.</p>
             <a class="text-link" href="#contact">Ask for a walkthrough</a>
+          </div>
+        </article>
+        <article class="case wide">
+          <a class="case-shot" href="https://qcomm-shelf-monitor.vercel.app/" target="_blank" rel="noopener" aria-label="Open the Quick-Commerce Shelf Monitor dashboard in a new tab">
+            <img src="assets/shelf-monitor.webp" width="1200" height="717" loading="lazy" alt="The Quick-Commerce Shelf Monitor dashboard: what it tracks (35 search words, 4 apps, 5 areas, over 1,100 brands), a filter line to pick any brand, category, area and date, and tabs for ranks, share of voice, advertisers, prices, stock and trends.">
+          </a>
+          <div>
+            <div class="stats">
+              <div class="stat"><div class="num">4</div><span>Apps searched</span></div>
+              <div class="stat"><div class="num">6×</div><span>Runs a day</span></div>
+              <div class="stat"><div class="num hi">0</div><span>Manual steps</span></div>
+            </div>
+            <div class="case-body">
+              <span class="tag">Market tracker · live</span>
+              <h3>Quick-Commerce Shelf Monitor</h3>
+              <p>Where brands rank on Blinkit, Zepto, Instamart and Flipkart Minutes, who pays for the top slots, what everyone charges and what's sold out, across three cities. It searches every three hours, matches the same product across apps and turns the result into a to-do list. The same job as your competitor or marketplace report.</p>
+              <a class="text-link" href="https://qcomm-shelf-monitor.vercel.app/" target="_blank" rel="noopener">Open the live dashboard</a>
+            </div>
           </div>
         </article>
       </div>
